@@ -1,0 +1,41 @@
+.column {
+    width: 100%;
+    margin-left: 35%;
+}
+
+.card{
+    width: 30%;
+}
+
+.field.secondary {
+    width: 25%;
+}
+
+.icon.is-small.is-left{
+    color: #000000;
+}
+
+@media only screen and (max-width: 1000px){
+    .column {
+        width: 100%;
+        margin-left: 25%;
+    }
+    
+    
+    .card{
+        width: 50%;
+    }
+   
+    .field-body {
+        display: inline;
+        flex-basis: 0;
+        flex-grow: 5;
+        flex-shrink: 1;
+    }
+
+    .field.secondary {
+        width: 50%;
+        margin-top: 15px;
+    }
+
+}

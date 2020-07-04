@@ -1,0 +1,68 @@
+<div class="card text-center">
+  <div class="card-header">
+    <H1>BUSCADOR DE AVERIAS CERRADAS</H1>
+  </div>
+   <div class="card-body">
+    <h5 class="card-title">Turno: Noche</h5>
+    <form action="/links/modificar" method="POST" id="test">
+                    <div class="form-row">
+                        <div class="col-sm-5">
+                        <label for="Select1" >FECHA</label>
+                        <input type="text" class="form-control" id="fecha-creacion" name="creation_date" placeholder="Fecha: dd-mm-yyyy" autofocus>
+                        </div>
+                        <div class="col-sm-2">
+                        <label for="Select1" >MAQUINA</label>
+                         <select name="num_maquina" class="form-control" id="num_maquina" >
+                            <option>A01</option>
+                            <option>A02</option>
+                            <option>A03</option>
+                            <option>A04</option>
+                            <option>A05</option>
+                            <option>A06</option>
+                            <option>A07</option>
+                            <option>A08</option>
+                            <option>A09</option>
+                            <option>A10</option>
+                            <option>A11</option>
+                            <option>A12</option>
+                            <option>A13</option>
+                            <option>G01</option>
+                            <option>G02</option>
+                            <option>G03</option>
+                            <option>G04</option>
+                            <option>X06</option>
+                            <option>x07</option>
+                        </select>
+                        </div>
+                        <div class="col-sm-1">
+                            <label for="Select1" >BUSCAR</label>
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </div>
+                        <div class="col-sm-1">
+                            <label for="Select1" >REGRESAR</label>
+                            <a href="/links/inicio" class="btn btn-outline-info my-2 my-sm-0">Go-back</a>
+                        </div>
+                    </div>
+                    </form>
+  </div>
+</div>
+
+    <div class="row">
+        {{#each averia}}
+        <div class="col-md-3">
+            <div class="card text-white bg-secondary mb-3 text-center">
+                <div class="card-header">{{num_maquina}}||<i class="fas fa-wrench"></i></div>
+                <div class="card-body">
+                    <h3 class="card-title">FECHA: {{creation_date}}</h3>
+                    <h3 class="card-title">HORA: {{opening_time}}</h3>
+                    <a href="#" class="btn btn-primary">Editar</a>
+                    <a href="#" class="btn btn-danger">Eliminar</a>
+                    <a href="#" class="btn btn-success">Generar</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+

@@ -1,0 +1,68 @@
+<div id="1" style="background-color:#1ca7ce; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#1ca7ce;
+  ">
+    <div id="2" style="width: 50%;">
+        <div class="card text-center">
+            <div class="card-body">
+                <H1>LOGO</H1>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="width:100%; height:20px; background-color: #1ca7ce;">
+</div>
+<div style="background-color: #1ca7ce; height:600px; width:10%%; ">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card text-white bg-secondary mb-3 text-center">
+                <div class="card-header">REPORTES</div>
+                <div class="card-body">
+                    <p class="card-text">Reportes de los tiempos de averias en las maquinas</p>
+                    <form action="/links/reportes" method="POST" id="test">
+                    <div class="form-row">
+                        <div class="col-7">
+                        <label for="Select1" >TURNO</label>
+                         <select name="turno" class="form-control" id="turno" >
+                            <option>MAÑANA</option>
+                            <option>TARDE</option>
+                            <option>NOCHE</option>
+                        </select>
+                        </div>
+                        <div class="col">
+                            <label for="Select1" >BUSCAR</label>
+                        <button class="btn btn-success " type="submit">Search</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card text-white bg-secondary mb-3 text-center">
+                <div class="card-header">AVERIAS</div>
+                <div class="card-body">
+                    <p class="card-text">VISUALIZAR, EDITAR Y ELIMINAR AVERIAS</p><br>
+                    <form action="/links/averias" method="POST" id="test">
+                    <div class="form-row">
+                        <div class="col-7">
+                        <label for="Select1" >TURNO</label>
+                         <select name="turno" class="form-control" id="turno" >
+                            <option>MAÑANA</option>
+                            <option>TARDE</option>
+                            <option>NOCHE</option>
+                        </select>
+                        </div>
+                        <div class="col">
+                            <label for="Select1" >BUSCAR</label>
+                        <button class="btn btn-success " type="submit">Search</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

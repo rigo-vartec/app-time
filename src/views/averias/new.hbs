@@ -1,0 +1,106 @@
+<div class="conatiner p-4">
+    <div class="row">
+        {{#each averias}}
+        <div class="col-md-5 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/averia/new/{{id}}" method="POST" id="form">
+                        <form action="/arrival/validated/{{id}}" method="POST" id="form1">
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label>FECHA</label>
+                                <p id="fecha" class="form-control"></p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>HORA</label>
+                                <p id="hora" class="form-control"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>TURNO</label>
+                            <input type="text" class="form-control" name="turno" id="turno" value="{{turno}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE MAQUINA</label>
+                            <input type="text" class="form-control" name="num_machine" value="{{num_machine}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE OPERADOR</label>
+                            <input type="text" class="form-control" name="num_ope" value="{{num_ope}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE MECANICO</label>
+                            <input type="text" class="form-control" name="op_mantto" value="{{op_mantto}}" readonly>
+
+                        </div>
+                        <div class="form-group">
+                            <label>TIPO DE AVERIA</label>
+                            <input type="text" class="form-control" name="type_break" value="{{type_break}}" readonly>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Comentarios</label>
+                            <textarea class="form-control" minlength="5" name="description" id="description"
+                                rows="3"></textarea>
+                        </div>
+                        <div class="alert alert-primary" role="alert" id="alert" style="display:none">
+                            <strong>El tiempo de la averia fue puesta en pausa. <br>
+                                En <span id="countdown" class="timer"></span> se reiniciara el conteo</strong>
+                        </div>
+                        <div style="display:none">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="fecha-creacion" value="{{creation_date}}"
+                                    name="creation_date">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="fecha-inicio" value="{{start_date}}"
+                                    name="start_date">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="hora-inicio" value="{{start_time}}"
+                                    name="start_time">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="user_id" value="{{user_id}}"
+                                        name="user_id">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="mantto_id" value="{{mantto_id}}"
+                                        name="mantto_id">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="hora-llegada" value="{{arrival_time}}"
+                                        name="arrival_time">
+                                </div>
+                                <div class="form-group">
+                                <input type="text" class="form-control" id="hora-apertura" value="{{opening_time}}"
+                                    name="opening_time">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="sub_time" value="{{sub_time}}"
+                                    name="sub_time">
+                            </div>
+                                <div class="form-group">
+                                <input type="text" class="form-control" id="hora-fin" name="end_time">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="total_time" name="total_time">
+                            </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="step" name="step" value="0">
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-success btn-block" onclick="Closefunction()">CERRAR</button>
+            </div>
+            <div class="form-group">
+                <input type="button" id="1" value="PAUSA" class="btn btn-primary btn-block" onclick="toggle(this);">
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <script src="/js/reloj.js"></script>
+    <script src="/js/new.js">
+    </script>

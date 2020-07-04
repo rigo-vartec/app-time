@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="/css/estilo-averias.css">
+
+<div class="main-container">
+        {{#each averias}}
+        <div class="sub-container mx-auto">
+            <div class="card ">
+                <div class="card-body ">
+                    <form action="/arrival/validate/{{id}}" method="POST" id="form1">
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <p id="fecha" class="form-control"></p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <p id="hora" class="form-control"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>TURNO</label>
+                            <input type="text" class="form-control" name="turno" id="turno" value="{{turno}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE MAQUINA</label>
+                            <input type="text" class="form-control" name="num_machine" value="{{num_machine}}"
+                                readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE OPERADOR</label>
+                            <input type="text" class="form-control" name="num_ope" value="{{num_ope}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE MECANICO</label>
+                            <input type="text" class="form-control" id="op_mantto" name="op_mantto"
+                                placeholder="Ingrese su numero de control">
+                        </div>
+                        <div style="display: none;" class="form-group">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="sub_time" name="sub_time">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="hora-llegada" name="arrival_time">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="hora-inicio" value="{{start_time}}">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="page" name="page" value="arrival_2">
+                            </div>
+                        </div>
+                    </form>
+                    <form  style="display: none;" action="/arrival/validate/close/{{id}}" method="POST" id="form2">
+                        <div class="form-group">
+                            <div class="form-group">
+                            <input type="text" class="form-control" name="num_machine" value="{{num_machine}}">
+                        </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="op_mantto2" name="op_mantto"
+                                    placeholder="Nº MECANICO">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="hora-cancelado" name="canceled_time">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="total_time" name="sub_time">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="step" name="step" value="0">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                {{/each}}
+                {{#if alerta}}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>operador no valido</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {{/if}}
+                <div class="form-group button">
+                    <button class="btn btn-primary btn-block" onclick="Validateform()"> Iniciar </button>
+                </div>
+                <div class="form-group button">
+                    <button class="btn btn-danger btn-block" onclick="Cancelform()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+</div>
+<script src="/js/reloj.js">
+</script>
+<script src="/js/arrival.js">
+</script>

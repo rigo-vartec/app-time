@@ -1,0 +1,66 @@
+<div class="conatiner p-4">
+    <div class="row">
+        {{#each averias}}
+        <div class="col-md-5 mx-auto">
+            <div class="card border-primary mb-3">
+                <div class="card-body ">
+                    <form action="/incidencia/new/{{id}}" method="POST" id="form1">
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <p id="fecha" class="form-control"></p>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <p id="hora" class="form-control"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>TURNO</label>
+                            <input type="text" class="form-control" name="turno" id="turno" value="{{turno}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE MAQUINA</label>
+                            <input type="text" class="form-control" name="num_machine" value="{{num_machine}}"
+                                readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE OPERADOR</label>
+                            <input type="text" class="form-control" name="num_ope" value="{{num_ope}}" readonly>
+                        </div>
+                        <div class="form-group">
+                         <label for="Select1" >Tipo de averia</label>
+                         <select name="type_break" class="form-control" id="Select1" >
+                            <option value="1">Selecciona el tipo de averia</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        </div>
+                        <div style="display: none;">
+                                <div class="form-group">
+                                <input type="text" class="form-control" id="resta" name="total_time">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="hora-llegada" name="end_time">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="hora-inicio" value="{{start_time}}">
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" class="form-control" id="step" name="step" value="0">
+                                </div>
+                        </div>
+                    </form>
+                </div>
+                {{/each}}
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" onclick="FinishFunction()"> TERMINAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/reloj.js">
+</script>
+<script src="/js/arrival.js">
+</script>

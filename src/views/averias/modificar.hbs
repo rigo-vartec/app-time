@@ -1,0 +1,136 @@
+<div class="conatiner p-4">
+    <div class="row">
+        {{#each averia}}
+        <div class="col-md-5 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <H1>AVERIA CERRADA</H1>
+                </div>
+                <div class="card-body">
+                    <form action="/averia/corte/estatus/{{id}}" method="POST" id="test">
+                        <div class="form-group">
+                            <label>FECHA</label>
+                            <input type="text" class="form-control" id="turno" value="{{creation_date}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>TURNO</label>
+                            <input type="text" class="form-control" id="turno" value="{{turno}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE MAQUINA</label>
+                            <input type="text" class="form-control" name="num_machine" value="{{num_machine}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE OPERADOR</label>
+                            <input type="text" class="form-control" name="num_ope" value="{{num_ope}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>OPERADOR DE MANTENIMIENTO</label>
+                            <input type="text" class="form-control" name="num_ope" value="{{op_mantto}}" readonly>
+                        </div>
+                        <div class="form-group">
+                         <label for="Select1" >Define el estado de tu averia</label>
+                         <select name="estatus" class="form-control" id="Select1" >
+                            <option value="1">Selecciona el estado</option>
+                            <option value="aprobado">Aprobada</option>
+                            <option value="rechazado">Pedir aclaracion</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit"class="btn btn-primary btn-block">CAMBIAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{#each averia_mantto}}
+        <div class="col-md-5 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <H1>AVERIA CERRADA</H1>
+                </div>
+                <div class="card-body">
+                    <form action="/averia/mantto/estatus/{{id}}" method="POST" id="test">
+                        <div class="form-group">
+                            <label>FECHA</label>
+                            <input type="text" class="form-control" id="turno" value="{{creation_date}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>TURNO</label>
+                            <input type="text" class="form-control" id="turno" value="{{turno}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE MAQUINA</label>
+                            <input type="text" class="form-control" name="num_machine" value="{{num_machine}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE OPERADOR</label>
+                            <input type="text" class="form-control" name="num_ope" value="{{num_ope}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>OPERADOR DE MANTENIMIENTO</label>
+                            <input type="text" class="form-control" name="num_ope" value="{{op_mantto}}" readonly>
+                        </div>
+                        <div class="form-group">
+                         <label for="Select1" >Define el estado de tu averia</label>
+                         <select name="estatus" class="form-control" id="Select1" >
+                            <option value="1">Selecciona el estado</option>
+                            <option value="aprobado">Aprobada</option>
+                            <option value="rechazado">Pedir aclaracion</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit"class="btn btn-primary btn-block">CAMBIAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{#each averia_calidad}}
+        <div class="col-md-5 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <H1>AVERIA CERRADA</H1>
+                </div>
+                <div class="card-body">
+                    <form action="/averia/calidad/estatus/{{id}}" method="POST" id="test">
+                        <div class="form-group">
+                            <label>FECHA</label>
+                            <input type="text" class="form-control" id="turno" value="{{creation_date}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>TURNO</label>
+                            <input type="text" class="form-control" id="turno" value="{{turno}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE MAQUINA</label>
+                            <input type="text" class="form-control" name="num_machine" value="{{num_machine}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>NUMERO DE OPERADOR</label>
+                            <input type="text" class="form-control" name="num_ope" value="{{num_ope}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>OPERADOR DE MANTENIMIENTO</label>
+                            <input type="text" class="form-control" name="num_ope" value="{{op_mantto}}" readonly>
+                        </div>
+                        <div class="form-group">
+                         <label for="Select1" >Define el estado de tu averia</label>
+                         <select name="estatus" class="form-control" id="Select1" >
+                            <option value="1">Selecciona el estado</option>
+                            <option value="aprobado">Aprobada</option>
+                            <option value="rechazado">Pedir aclaracion</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit"class="btn btn-primary btn-block">CAMBIAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

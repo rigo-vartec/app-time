@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="card-header text-center">
+        <H1>INCIDENCIAS</H1>
+        <div class="col">
+            <a href="/inicio/logged/operador_corte" class="btn btn-outline-info my-2 my-sm-0">REGRESAR</a>
+        </div>
+    </div>
+
+</div>
+<div class="container row mx-auto">
+    {{#each averias}}
+    <div class="card mx-auto">
+        <div class="face face1">
+            <div class="content">
+                <div class="icon">
+                    <i class="fa fa-list-alt" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <p>Maquina: {{num_machine}} </p>
+                <p>Fecha: {{creation_date}} </p>
+                <p>Hora inicio: {{start_time}}</p>
+                <p>Tiempo total: {{total_time}}</p>
+                <p>Motivo incidencia: {{type_break}}</p>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class=" col-md-4 mx-auto">
+        <div class="card card-body test-center">
+            <p>Por el momento no hay averias por revisar</p>
+        </div>
+    </div>
+    {{/each}}
+

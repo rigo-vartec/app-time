@@ -1,0 +1,71 @@
+<div style="background-color: #1ca7ce;" class="conatiner p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="form-group">
+                        <h1>LOGO</h1>
+                    </div>
+                    <div class="form-group">
+                        <p id="fecha" class="form-control"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="background-color: #1ca7ce; height:600px; width:10%%; ">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card text-white bg-secondary mb-3 text-center">
+                <div class="card-header">Ingresa el total de tu hora x hora</div>
+                <div class="card-body mx-auto">
+                    <p class="card-text">Selecciona el bloque al cual deseas ingresar</p>
+                        <form action="/bloque/1" method="POST">
+
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block">Bloque uno</button>
+                            </div>
+                        </form>
+                        <form action="/bloque/2" method="POST">
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block">Bloque dos</button>
+                            </div>
+                        </form>
+                    <form action="/bloque/3" method="POST">
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">Bloque tres</button>
+                        </div>
+                    </form>
+                    <form action="/bloque/4" method="POST">
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">Bloque cuatro</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card text-white bg-secondary mb-3 text-center">
+                <div class="card-header">REPORTES E INCIDENCIAS</div>
+                <div class="card-body mx-auto">
+                    <p class="card-text">Visualiza el estado de tus averias y reportes.</p>
+                    <form action="/login" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="username" placeholder="Usuario" class="form-control" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" placeholder="Contraseña" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/reloj.js"> </script>
+<script src="/js/add.js"> </script>

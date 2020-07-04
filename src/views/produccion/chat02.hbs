@@ -1,0 +1,183 @@
+<link rel="stylesheet" href="/css/styles-ejemplo.css">
+<script src="/socket.io/socket.io.js"></script>
+<div class="row">
+	<div class="contenedor left">
+		<div class="contenedor img text-center">
+			<img src="/logos/user-profile.png" alt="">
+		</div>
+		<div class="card left text-center">
+			<div class="card-body mx-auto">
+				<div class="form-group">
+					<input type="text" class="form-control" name="num_ope" placeholder="Nº OPERADOR" id="text" autofocus
+						required>
+				</div>
+				<form action="/averia/add" method="POST" id="test">
+					<div style="display: none;">
+						<div class="form-group">
+							<label>NUMERO DE OPERADOR</label>
+							<input type="text" class="form-control" name="num_ope" placeholder="Nº OPERADOR" id="text1">
+						</div>
+						<div class="form-group">
+							<label>TURNO</label>
+							<input type="text" class="form-control" name="turno" id="turno">
+						</div>
+						<div class="form-group">
+							<label>NUMERO DE MAQUINA</label>
+							<input type="text" class="form-control" name="num_machine" id="username" value="A01">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="hora-inicio" name="start_time">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="fecha-inicio" name="start_date">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="fecha-creacion" name="creation_date">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="step" name="step" value="1">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="page" name="page" value="arrival">
+						</div>
+					</div>
+				</form>
+				<div class="form-group">
+					<button class="btn btn-success btn-block" onclick="StartFunction()">AVERIA</button>
+				</div>
+				<form action="/incidencia/add" method="POST" id="test1">
+					<div style="display: none;">
+						<div class="form-group">
+							<input type="text" class="form-control" name="num_ope" placeholder="Nº OPERADOR" id="text2">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" name="turno" id="turno-1">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" name="num_machine" value="A01">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="hora-inicio-1" name="start_time">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="fecha-inicio-1" name="start_date">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="fecha-creacion-1" name="creation_date">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="step1" name="step" value="1">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="page1" name="page" value="incidencia">
+						</div>
+					</div>
+				</form>
+				<div class="form-group">
+					<button class="btn btn-success btn-block" onclick="Startfunction_1()">INCIDENCIA</button>
+				</div>
+				<!--<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Por favor enciende tu farola y avisa al facilitador !</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>-->
+			</div>
+		</div>
+	</div>
+	<div class="contenedor right">
+		<div class="card border-light text-center">
+			<H1>A01</H1>
+			<div class="form-row">
+				<div class="form-group col-md-7">
+					<p id="fecha" class="form-control"></p>
+				</div>
+				<div class="form-group col-md-4">
+					<p id="hora" class="form-control"></p>
+				</div>
+			</div>
+		</div>
+		<div>
+			<nav>
+				<div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+					<a class="nav-item nav-link active" id="nav-chat-tab" data-toggle="tab" href="#chat-calidad"
+						role="tab" aria-controls="nav-chat" aria-selected="true">Chat con calidad</a>
+					<a class="nav-item nav-link" id="nav-produccion-tab" data-toggle="tab" href="#registro-produccion"
+						role="tab" aria-controls="nav-produccion" aria-selected="false">Registro de produccion</a>
+					<a class="nav-item nav-link" id="nav-averias-tab" data-toggle="tab" href="#averias" role="tab"
+						aria-controls="nav-averias" aria-selected="false">Averias</a>
+				</div>
+			</nav>
+			<div class="contenedor sub-right tab-content" id="nav-tabContent">
+				<div class="tab-pane fade show active" id="chat-calidad" role="tabpanel" aria-labelledby="nav-chat-tab">
+					<div class="chat form-group">
+						<div class="message">
+							<ul>
+								<div id="message">
+									<li class="msg-left">
+										<div class="msg-left-sub">
+											<img src="/logos/a2.png">
+											<div class="msg-desc">
+												HOLA2
+											</div>
+										</div>
+									</li>
+									
+								</div>
+							</ul>
+						</div>
+					</div>
+					<div class="form-group text-center">
+						<input type="text" id="mensaje">
+						<button class="btn-send" onclick="enviarchat01()"><i class="fa fa-paper-plane"></i></button>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="registro-produccion" role="tabpanel"
+					aria-labelledby="nav-produccion-tab">
+					<div class="card bg-light mb-3 text-center">
+						<div class="card-header">REGISTRO DE PRODUCCIÓN</div>
+						<div class="card-body mx-auto">
+							<p class="card-text">Lleva el registro de producción de cada hora.</p>
+							<form action="/registro/produccion/maquinas" method="POST">
+								<div style="display:none" class="form-group">
+									<input type="text" class="form-control" name="num_machine" value="A01">
+									<input type="text" class="form-control" name="turno" id="turno-2">
+								</div>
+								<div class="form-group">
+									<button class="btn btn-primary btn-block">Registrar</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="averias" role="tabpanel" aria-labelledby="nav-averias-tab">
+					<div class="card bg-light mb-3 text-center">
+						<div class="card-header">AVERIAS E INCIDENCIAS</div>
+						<div class="card-body mx-auto">
+							<p class="card-text">Visualiza el estado de tus averias e incidencias.</p>
+							<form action="/login/maquinas" method="POST">
+								<div style="display:none" class="form-group">
+									<input type="text" class="form-control" name="num_maquina" value="A01">
+								</div>
+								<div class="form-group">
+									<input type="text" name="username" placeholder="Nº Operador" class="form-control"
+										autofocus>
+								</div>
+								<div class="form-group">
+									<input type="password" name="password" placeholder="Contraseña"
+										class="form-control">
+								</div>
+								<div class="form-group">
+									<button class="btn btn-primary btn-block">Login</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/js/reloj.js"> </script>
+<script src="/js/add.js"> </script>

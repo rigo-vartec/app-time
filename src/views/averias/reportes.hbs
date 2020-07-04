@@ -1,0 +1,573 @@
+<style>
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: 2px;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+
+  .active,
+  .accordion:hover {
+    background-color: #ccc;
+  }
+
+  .accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .active:after {
+    content: "\2212";
+  }
+
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+</style>
+
+<div class="card text-center">
+  <div class="card-header">
+    <H1>BUSCADOR DE REPORTES</H1>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Turno:Mañana</h5>
+    <form action="/links/" method="POST" id="test">
+      <div class="form-row">
+        <div class="col-sm-5">
+          <label for="Select1">Fecha de busqueda</label>
+          <input type="text" class="form-control" id="fecha-creacion" name="creation_date"
+            placeholder="Fecha: dd/mm/yy">
+        </div>
+        <div class="col-sm-1">
+          <label for="Select1">BUSCAR</label>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </div>
+        <div class="col-sm-1">
+          <label for="Select1">REGRESAR</label>
+          <a href="/links/inicio" class="btn btn-outline-info my-2 my-sm-0">Go-back</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<button class="accordion"> <strong>Maquina: A01</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a01_1}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+    {{#each reporte_a01}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+
+<button class="accordion"><strong>Maquina: A02</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a02}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+
+
+<button class="accordion"><strong>Maquina: A03</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a03}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+<button class="accordion"><strong>Maquina: A04</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a04}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+<button class="accordion"><strong>Maquina: A05</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a05}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+<button class="accordion"><strong>Maquina: A06</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a06}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+<button class="accordion"><strong>Maquina: A07</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a07}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+<button class="accordion"><strong>Maquina: A08</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a08}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+<button class="accordion"><strong>Maquina: A09</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a09}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+<button class="accordion"><strong>Maquina: A10</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a10}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+<button class="accordion"><strong>Maquina: A11</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a11}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+<button class="accordion"><strong>Maquina: A12</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Fecha de creacion</th>
+        <th scope="col">Motivo de averia</th>
+        <th scope="col">Hora-inicio de averia</th>
+        <th scope="col">Hora-fin de averia</th>
+        <th scope="col">Tiempo total de averia</th>
+      </tr>
+    </thead>
+    {{#each reporte_a12}}
+    <tbody>
+      <tr>
+        <td class="table-active">{{creation_date}}</td>
+        <td class="table-active">{{tipo_averia}}</td>
+        <td class="table-active">{{start_time}}</td>
+        <td class="table-active">{{end_time}}</td>
+        <td class="table-active"></td>
+      </tr>
+    </tbody>
+    {{/each}}
+  </table>
+</div>
+<button class="accordion"><strong>Maquina: A13</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fecha de creacion</th>
+            <th scope="col">Motivo de averia</th>
+            <th scope="col">Hora-inicio de averia</th>
+            <th scope="col">Hora-fin de averia</th>
+            <th scope="col">Tiempo total de averia</th>
+        </tr>
+    </thead>
+    {{#each reporte_a13}}
+    <tbody>
+        <tr>
+            <td class="table-active">{{creation_date}}</td>
+            <td class="table-active">{{tipo_averia}}</td>
+            <td class="table-active">{{start_time}}</td>
+            <td class="table-active">{{end_time}}</td>
+            <td class="table-active"></td>
+        </tr>
+    </tbody>
+    {{/each}}
+</table>
+</div>
+<button class="accordion"><strong>Maquina: G01</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fecha de creacion</th>
+            <th scope="col">Motivo de averia</th>
+            <th scope="col">Hora-inicio de averia</th>
+            <th scope="col">Hora-fin de averia</th>
+            <th scope="col">Tiempo total de averia</th>
+        </tr>
+    </thead>
+    {{#each reporte_g01}}
+    <tbody>
+        <tr>
+            <td class="table-active">{{creation_date}}</td>
+            <td class="table-active">{{tipo_averia}}</td>
+            <td class="table-active">{{start_time}}</td>
+            <td class="table-active">{{end_time}}</td>
+            <td class="table-active"></td>
+        </tr>
+    </tbody>
+    {{/each}}
+</table>
+</div>
+<button class="accordion"><strong>Maquina: G02</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fecha de creacion</th>
+            <th scope="col">Motivo de averia</th>
+            <th scope="col">Hora-inicio de averia</th>
+            <th scope="col">Hora-fin de averia</th>
+            <th scope="col">Tiempo total de averia</th>
+        </tr>
+    </thead>
+    {{#each reporte_g02}}
+    <tbody>
+        <tr>
+            <td class="table-active">{{creation_date}}</td>
+            <td class="table-active">{{tipo_averia}}</td>
+            <td class="table-active">{{start_time}}</td>
+            <td class="table-active">{{end_time}}</td>
+            <td class="table-active"></td>
+        </tr>
+    </tbody>
+    {{/each}}
+</table>
+</div>
+<button class="accordion"><strong>Maquina: G03</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fecha de creacion</th>
+            <th scope="col">Motivo de averia</th>
+            <th scope="col">Hora-inicio de averia</th>
+            <th scope="col">Hora-fin de averia</th>
+            <th scope="col">Tiempo total de averia</th>
+        </tr>
+    </thead>
+    {{#each reporte_g03}}
+    <tbody>
+        <tr>
+            <td class="table-active">{{creation_date}}</td>
+            <td class="table-active">{{tipo_averia}}</td>
+            <td class="table-active">{{start_time}}</td>
+            <td class="table-active">{{end_time}}</td>
+            <td class="table-active"></td>
+        </tr>
+    </tbody>
+    {{/each}}
+</table>
+</div>
+<button class="accordion"><strong>Maquina: G04</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fecha de creacion</th>
+            <th scope="col">Motivo de averia</th>
+            <th scope="col">Hora-inicio de averia</th>
+            <th scope="col">Hora-fin de averia</th>
+            <th scope="col">Tiempo total de averia</th>
+        </tr>
+    </thead>
+    {{#each reporte_g04}}
+    <tbody>
+        <tr>
+            <td class="table-active">{{creation_date}}</td>
+            <td class="table-active">{{tipo_averia}}</td>
+            <td class="table-active">{{start_time}}</td>
+            <td class="table-active">{{end_time}}</td>
+            <td class="table-active"></td>
+        </tr>
+    </tbody>
+    {{/each}}
+</table>
+</div>
+<button class="accordion"><strong>Maquina: X07</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fecha de creacion</th>
+            <th scope="col">Motivo de averia</th>
+            <th scope="col">Hora-inicio de averia</th>
+            <th scope="col">Hora-fin de averia</th>
+            <th scope="col">Tiempo total de averia</th>
+        </tr>
+    </thead>
+    {{#each reporte_x07}}
+    <tbody>
+        <tr>
+            <td class="table-active">{{creation_date}}</td>
+            <td class="table-active">{{tipo_averia}}</td>
+            <td class="table-active">{{start_time}}</td>
+            <td class="table-active">{{end_time}}</td>
+            <td class="table-active"></td>
+        </tr>
+    </tbody>
+    {{/each}}
+</table>
+</div>
+<button class="accordion"><strong>Maquina: X06</strong></button>
+<div class="panel">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fecha de creacion</th>
+            <th scope="col">Motivo de averia</th>
+            <th scope="col">Hora-inicio de averia</th>
+            <th scope="col">Hora-fin de averia</th>
+            <th scope="col">Tiempo total de averia</th>
+        </tr>
+    </thead>
+    {{#each reporte_x06}}
+    <tbody>
+        <tr>
+            <td class="table-active">{{creation_date}}</td>
+            <td class="table-active">{{tipo_averia}}</td>
+            <td class="table-active">{{start_time}}</td>
+            <td class="table-active">{{end_time}}</td>
+            <td class="table-active"></td>
+        </tr>
+    </tbody>
+    {{/each}}
+</table>
+</div>
+
+
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  }
+</script>

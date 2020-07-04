@@ -1,0 +1,150 @@
+<script src="/socket.io/socket.io.js"></script>
+
+<link rel="stylesheet" href="/css/styles-3.css">
+
+<div class="container mx-auto text-center">
+	<div class="row mx-auto">
+		<div class="headLeft-section">
+			<input class="input" type="text" id="search" style="text-transform: uppercase;" value=""
+				onkeyup="javascript:this.value=this.value.toUpperCase();">
+			<button id="searchchat" onclick="Buscarchat()"> <i class="fa fa-search"></i> </button>
+		</div>
+		<div class="headRight-section">
+			<h3>chat supervisor de calidad</h3>
+			<input type="text"  id="username" value="calidad" style="display: none;">
+		</div>
+	</div>
+	<div class="row mx-auto">
+		<div class="bodyLeft-section">
+			<div class="container chat" id="maquinaA01">
+				<a onclick="Chat1()">
+					<div class="item">
+						<ul>
+							<li>
+								<div class="chatList">
+									<div class="img">
+										<i class="fa fa-circle"></i>
+										<img src="/logos/A1.png">
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</a>
+			</div>
+			<div class="container chat" id="maquinaA02">
+				<a onclick="Chat2()">
+					<div class="item">
+						<ul>
+							<li>
+								<div class="chatList">
+									<div class="img">
+										<i class="fa fa-circle"></i>
+										<img src="/logos/A2.png">
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</a>
+			</div>
+			<div class="container chat" id="maquinaA03">
+				<a onclick="Chat3()">
+					<div class="item">
+						<ul>
+							<li>
+								<div class="chatList">
+									<div class="img">
+										<i class="fa fa-circle"></i>
+										<img src="/logos/A3.png">
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="bodyRight-section">
+			<div class="oculto mx-auto" id="chat-gral">
+				<div class=" p-4 mx-auto">
+					<div class="card text-white bg-info mb-3 text-center">
+						<div class="card-header">
+							<h2>Por el momento no hay mensajes</h2>
+						</div>
+						<div class="card-body ">
+							<p class="card-text">Selecciona un chat de para comenzar una conversación</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="oculto" id="chat-a01" style="display: none;">
+				<div class="right-section ">
+					<div class="message mCustomScrollbar" data-mcs-theme="minimal-dark">
+						<ul>
+							<li class="msg-left">
+								<div class="msg-left-sub">
+									<img src="/logos/a2.png">
+									<div class="msg-desc">
+										HOLA2
+									</div>
+									<small>05:25 am</small>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="right-section-bottom">
+					<input type="text" name="" placeholder="Escribe tu mensaje para...A01">
+					<button class="btn-send"><i class="fa fa-paper-plane"></i></button>
+				</div>
+			</div>
+			<div class="oculto" id="chat-a02" style="display: none;">
+				<div class="right-section ">
+					<div class="message mCustomScrollbar" data-mcs-theme="minimal-dark">
+						<ul>
+							<div id="message-calidad">
+								<li class="msg-left">
+								<div class="msg-left-sub">
+									<img src="/logos/a2.png">
+									<div class="msg-desc">
+										HOLAdvdf
+									</div>
+									<small>05:25 am</small>
+								</div>
+							</li>
+							</div>
+						</ul>
+					</div>
+				</div>
+				<div class="right-section-bottom">
+					<input type="text" name="" placeholder="Escribe tu mensaje para...A02">
+					<button class="btn-send"><i class="fa fa-paper-plane"></i></button>
+				</div>
+			</div>
+			<div class="oculto" id="chat-a03" style="display: none;">
+				<div class="right-section ">
+					<div class="message mCustomScrollbar" data-mcs-theme="minimal-dark">
+						<ul>
+							<li class="msg-left">
+								<div class="msg-left-sub">
+									<img src="/logos/a2.png">
+									<div class="msg-desc">
+										HOLA2
+									</div>
+									<small>05:25 am</small>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="right-section-bottom">
+					<input type="text" name="" placeholder="Escribe tu mensaje para...A03">
+					<button class="btn-send"><i class="fa fa-paper-plane"></i></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/js/chat.js"></script>
