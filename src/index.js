@@ -9,7 +9,7 @@ const MySQLStore = require('express-mysql-session');
 const passport = require('passport');
 const realtime = require('./socket');
 
-//const PORT = 4000;
+const PORT = 4000;
 const IP = '192.168.1.167';
 
 const { database } = require('./keys');
@@ -18,11 +18,11 @@ const { database } = require('./keys');
 const app = express(); 
 require('./lib/passport');
 
-//const server = http.Server(app);
+const server = http.Server(app);
 
 
 //configuraciones servidor
-app.set('port', process.env.PORT || 4000);
+//app.set('port', process.env.PORT || 4000);
 app.set('views',path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
@@ -41,13 +41,13 @@ saveUninitialized: false,
 store: new MySQLStore( database )
 }));
 
-//sessionMiddleware = session({
-  //  secret: 'my_s3cr3t_s3ss1on',
-   // resave: true,
-   // saveUninitialized: true
-//});
+sessionMiddleware = session({
+  secret: 'my_s3cr3t_s3ss1on',
+  resave: true,
+  saveUninitialized: true
+});
 
-//realtime(server,sessionMiddleware);
+realtime(server,sessionMiddleware);
 
 
 app.use(flash());
@@ -76,13 +76,11 @@ app.use('/static', express.static(__dirname + '/public'));
 
 //iniciar servidor
 
-//server.listen(PORT,IP, () => {
-  //  console.log("your http server listening on the port " + IP + ":" + PORT + "/");
-//});
-
-app.listen(app.get('port'),()=>{
-
+server.listen(PORT, () => {
+  console.log("your http server listening on the port " + IP + ":" + PORT + "/");
 });
+
+
 
 
 
