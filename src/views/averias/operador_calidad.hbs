@@ -6,33 +6,35 @@
         </div>
     </div>
 </div>
-<div class="container row mx-auto">
-    {{#each averias}}
-    <div class="card">
-        <div class="face face1">
-            <div class="content">
-                <div class="icon">
-                    <i class="fa fa-wrench" aria-hidden="true"></i>
+<div class="row">
+        <div class="container row mx-auto">
+            {{#each averias}}
+            <div class="card mx-auto">
+                <div class="face face1">
+                    <div class="content">
+                        <div class="icon">
+                            <i class="fa fa-wrench" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <h3>
+                            <a href="/averia/calidad/cambiar/estatus/{{id}}" class="btn btn-primary">Aprobar</a>
+                        </h3>
+                        <p>Parte: {{id}} </p>
+                        <p>Maquina: {{num_machine}} </p>
+                        <p>Fecha: {{creation_date}} </p>
+                        <p>Operador mantto: {{op_mantto}}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="face face2">
-            <div class="content">
-                <h3>
-                    <a href="/averia/calidad/cambiar/estatus/{{id}}" class="btn btn-primary">Aprobar</a>
-                </h3>
-                <p>Maquina: {{num_machine}} </p>
-                <p>Fecha: {{creation_date}} </p>
-                <p>Operador mantto: {{op_mantto}}</p>
-                <p>Motivo averia: {{type_break}} </p>
+            {{else}}
+            <div class=" col-md-4 mx-auto">
+                <div class="card card-body test-center">
+                    <p>Por el momento no hay averias por revisar</p>
+                </div>
             </div>
+            {{/each}}
         </div>
     </div>
-    {{else}}
-    <div class=" col-md-4 mx-auto">
-        <div class="card card-body test-center">
-            <p>Por el momento no hay averias por revisar</p>
-        </div>
-    </div>
-    {{/each}}
-</div>

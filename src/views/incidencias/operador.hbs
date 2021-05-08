@@ -1,12 +1,14 @@
+<link rel="stylesheet" href="/css/estilo-b-averia.css">
+{{> navbar }}
 <div class="card">
     <div class="card-header text-center">
         <H1>INCIDENCIAS</H1>
         <div class="col">
-            <a href="/inicio/logged/operador_corte" class="btn btn-outline-info my-2 my-sm-0">REGRESAR</a>
+            <a href="/user/logged/operador_corte" class="btn btn-outline-info my-2 my-sm-0">REGRESAR</a>
         </div>
     </div>
-
 </div>
+<div class="row">
 <div class="container row mx-auto">
     {{#each averias}}
     <div class="card mx-auto">
@@ -34,4 +36,5 @@
         </div>
     </div>
     {{/each}}
-
+</div>
+</div>

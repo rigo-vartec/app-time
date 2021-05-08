@@ -1,11 +1,12 @@
-CREATE DATABASE database_corte ;
+CREATE DATABASE database_demo;
 
-USE database_corte;
+USE database_demo;
 
 CREATE TABLE roles(
     id INT(10) NOT NULL,
     rol VARCHAR(30) NOT NULL
 );
+
 ALTER TABLE roles
 ADD PRIMARY KEY(id);
 
@@ -17,7 +18,8 @@ CREATE TABLE users(
     username INT(10) NOT NULL,
     password VARCHAR(50) NOT NULL,
     fullname VARCHAR(50) NOT NULL,
-    rol INT(5) NOT NULL
+    machine VARCHAR(25) NOT NULL,
+    rol VARCHAR(50) NOT NULL
 );
 
 ALTER TABLE users
@@ -26,25 +28,25 @@ ADD PRIMARY KEY(id);
 ALTER TABLE users
 MODIFY id INT(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2 ;
 
-CREATE TABLE averias_a01(
+CREATE TABLE averias_1(
     id INT(10) NOT NULL,
     creation_date VARCHAR(20) NOT NULL,
     num_machine VARCHAR(5) NOT NULL,
     num_ope INT(10) ,
     turno VARCHAR(16) NOT NULL,
     op_mantto INT(10) NOT NULL,
-    num_super INT(10) NOT NULL,
     start_time TIME NOT NULL,
     start_date VARCHAR(50) NOT NULL,
     arrival_time TIME NOT NULL,
+    sub_time TIME NOT NULL,
     canceled_time TIME NOT NULL,
     opening_time TIME NOT NULL,
     end_time TIME NOT NULL,
+    total_time TIME NOT NULL,
     type_break VARCHAR(80) NOT NULL,
     user_id INT(10) NOT NULL,
     description text
 );
-
 
 CREATE TABLE averias(
     id INT(10) NOT NULL,

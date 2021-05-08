@@ -55,8 +55,8 @@ var meses = new Array(
     "Sábado"
   );
 
-  document.getElementById("fecha").innerHTML =diasSemana[d.getDay()] + ", " + d.getDate() + 
-  " de"     +  meses[d.getMonth()] + " de " +d.getFullYear();
+  document.getElementById("fecha").innerHTML =d.getDate() + 
+  " de "     +  meses[d.getMonth()] + " de " +d.getFullYear();
 
   
 

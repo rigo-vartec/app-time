@@ -5,7 +5,7 @@ window.addEventListener("load", function(){
     countdownTimer = setInterval('Secondpassed()', 1000);
 });
 
-var seconds = 300;
+var seconds = 299;
 function Secondpassed() {
     var minutes = Math.round((seconds - 30) / 60);
     var remainingSeconds = seconds % 60;
@@ -81,7 +81,7 @@ function resta() {
 
 
 
-function Stopform() {
+function Cancelform() {
    let tipoaveria = document.getElementById("Select1").value;
    if (tipoaveria === "1") {
     alert("Selecciona el tipo de averia");
@@ -89,7 +89,7 @@ function Stopform() {
 }
 else {
     var text = document.getElementById("Select1").value;
-    document.getElementById("tipo_averia").value = text;
+    document.getElementById("tipo_averia_2").value = text;
     var d = new Date();
     var t = d.toLocaleTimeString();
     document.getElementById("hora-cancelado").value = t.toString();
@@ -97,10 +97,7 @@ else {
 }
 }
 
-function Cancelfunc() {
-    
-    
-}
+
 
 function Sendfunction() {
     tipoaveria = document.getElementById("Select1").value;
@@ -108,6 +105,8 @@ function Sendfunction() {
         alert("Selecciona el tipo de averia");
         return false;
     }else{
+        var text = document.getElementById("Select1").value;
+        document.getElementById("tipo_averia").value = text;
         var d = new Date();
         var t = d.toLocaleTimeString();
         document.getElementById("hora-apertura").value = t.toString();
@@ -120,6 +119,8 @@ function showbutton() {
     Minutos = parseInt(inicio.substr(3));
     Horas = parseInt(inicio.substr(0));
     if (Minutos == 5) {
+        var text = document.getElementById("Select1").value;
+        document.getElementById("tipo_averia").value = text;
         document.getElementById("form1").submit();
     }else if (Horas > 0) {
         document.getElementById("showbutton2").style.display = "none";

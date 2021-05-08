@@ -10,6 +10,7 @@ router.get('/login', isNotLoggenIn, (req, res) =>{
     res.render('formularios/login');
 });
 
+
 router.post('/login', async(req, res) =>{
     let username = req.body.username;
     let maquina = req.body.num_maquina;
@@ -17,7 +18,7 @@ router.post('/login', async(req, res) =>{
     if(row.length > 0){
         const user = row[0];
         passport.authenticate('local.login', {
-    successRedirect: '/inicio/logged/'+ user.rol,
+    successRedirect: '/inicio/logged/'+ user.machine,
     failureRedirect: '/login',
     failureFlash: true
     })(req, res);
@@ -71,7 +72,6 @@ router.post('/registro', async(req, res) =>{
             })(req, res);
     }
 });
-
 
 
 router.get('/logout', (req, res) =>{

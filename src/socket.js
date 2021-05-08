@@ -7,8 +7,6 @@ module.exports = function (server,sessionMiddleware) {
   });
   
   io.sockets.on("connection", function (socket) {
-    console.log('new user',socket.request.session.id);
-
     socket.on('join', function (data) { 
       console.log(data);
       socket.join(data.username);
@@ -19,14 +17,17 @@ module.exports = function (server,sessionMiddleware) {
     });
 
     for (let i = 1; i < 14; i++) {
-      socket.on('chat:mensajes0'+(i),(data) =>{
-        io.to('A0'+(i)).emit('message:server0'+(i),data);
-        io.to('calidad').emit('message:server1',data);
+      socket.on('chat:mensaje'+(i),(data) =>{
+        io.to('A0'+[i]).emit('message:usercorte'+[i],data);
+        io.to('calidad').emit('message:usercalidad'+[i],data);
+        console.log(data);
+      });
+
+      socket.on('chat2:mensaje'+(i),(data) =>{
+        io.to('calidad').emit('message:calidad'+[i],data);
+        io.to('A0'+[i]).emit('message:calidaduser'+[i],data);
         console.log(data);
       });
     }
-    
-
   });
-
 }

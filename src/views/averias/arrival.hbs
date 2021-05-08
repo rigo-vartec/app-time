@@ -1,39 +1,25 @@
-<link rel="stylesheet" href="/css/estilo-averias.css">
-
-<div class="main-container">
-        {{#each averias}}
-        <div class="sub-container mx-auto">
-            <div class="card ">
-                <div class="card-body ">
-                    <form action="/arrival/validate/{{id}}" method="POST" id="form1">
-                        <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <p id="fecha" class="form-control"></p>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <p id="hora" class="form-control"></p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>TURNO</label>
-                            <input type="text" class="form-control" name="turno" id="turno" value="{{turno}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>NUMERO DE MAQUINA</label>
-                            <input type="text" class="form-control" name="num_machine" value="{{num_machine}}"
-                                readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>NUMERO DE OPERADOR</label>
-                            <input type="text" class="form-control" name="num_ope" value="{{num_ope}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>NUMERO DE MECANICO</label>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/estilo-n-averia.css">
+{{#each averias}}
+<body class="body-light-grey">
+    {{> navbar }}
+    <div class="full-height">
+        <div class="app-content-right">
+            <div class="content-img text-center">
+                <img src="/logos/ing-profile.png" alt="">
+            </div>
+            <div class="card-body mx-auto">
+                <div class="form-group  text-center">
+                        <p id="hora" class="form-control"></p>
+                    </div>
+                <form action="/arrival/validate/{{id}}" method="POST" id="form1">
+                    <div class="form-group">
                             <input type="text" class="form-control" id="op_mantto" name="op_mantto"
-                                placeholder="Ingrese su numero de control">
-                        </div>
-                        <div style="display: none;" class="form-group">
+                                placeholder="Numero de control" autofocus>
+                </div>
+                <div style="display: none;" class="form-group">
                             <div class="form-group">
+                                <p id="hora" class="form-control"></p>
                                 <input type="text" class="form-control" id="sub_time" name="sub_time">
                             </div>
                             <div class="form-group">
@@ -46,8 +32,8 @@
                                 <input type="text" class="form-control" id="page" name="page" value="arrival_2">
                             </div>
                         </div>
-                    </form>
-                    <form  style="display: none;" action="/arrival/validate/close/{{id}}" method="POST" id="form2">
+                </form>
+                <form  style="display: none;" action="/arrival/validate/close/{{id}}" method="POST" id="form2">
                         <div class="form-group">
                             <div class="form-group">
                             <input type="text" class="form-control" name="num_machine" value="{{num_machine}}">
@@ -67,14 +53,15 @@
                             </div>
                         </div>
                     </form>
-                </div>
                 {{/each}}
                 {{#if alerta}}
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>operador no valido</strong>
+                <div class="form-group">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>No valido</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
+                </div>
                 </div>
                 {{/if}}
                 <div class="form-group button">
@@ -85,7 +72,36 @@
                 </div>
             </div>
         </div>
-</div>
+        {{#each averias}}
+        <div class="app-content-left">
+            <div class="card left-center text-center">
+                <H1>AVERIA</H1>
+                <div class="row">
+                    <div class="form-group col-md-6 mx-auto">
+                        <p id="fecha" class="form-control"></p>
+                </div>
+            </div>
+            <div class="card left-sub text-center">
+                        <div class="form-group col-md-4 mx-auto">
+                            <label>MAQUINA</label>
+                        <p id="maquina" class="form-control">{{num_machine}}</p>
+                    </div>
+                <div class="row">
+                    <div class="form-group col-md-4 mx-auto">
+                        <label>TURNO</label>
+                            <p id="turno" class="form-control" >{{turno}}</p>
+                    </div>
+                    <div class="form-group col-md-4 mx-auto">
+                        <label>N. OPERADOR</label>
+                            <p id="num_ope" class="form-control">{{num_ope}}</p>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 <script src="/js/reloj.js">
 </script>
 <script src="/js/arrival.js">

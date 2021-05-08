@@ -45,20 +45,12 @@ function Emitir(){
 }
 
 function StartformA() {
-  opmantto = document.getElementById("text").value;
-  if (opmantto === "") {
-    alert("Existe un campo vacio en el formulario");
-    return false;
-  } else {
+  
     Timer();
     document.getElementById("hora-inicio").value =
     hora + ":" + minutos + ":" + segundos;
-    var texto = document.getElementById("text").value;
-    document.getElementById("text1").value = texto;
-    hora + ":" + minutos + ":" + segundos;
     document.getElementById("test").submit();
   }
-}
 
 function StartformI() {
   opmantto = document.getElementById("text").value;
@@ -75,22 +67,51 @@ function StartformI() {
   }
 }
 
-function enviarchat01(){
-  let mensaje = document.getElementById('mensaje');
-  socket.emit('chat:mensajes01',{
-    mensaje: mensaje.value,
-    username: username.value
-});
+
+//enviar mensaje a calidad
+function enviarchat(id){
+    let mensaje = document.getElementById('mensaje');
+    let hora = document.getElementById('hora');
+  if (mensaje.value === "") {
+    alert("No hay mensajes para enviar");
+    return false;
+  }else{
+    socket.emit('chat:mensaje'+id,{
+      mensaje: mensaje.value,
+      hora: hora.textContent.substr(0,5)
+  });
   mensaje.value = "";
+  }
 }
 
-socket.on('message:server01', function(data){
-  output1.innerHTML +=  `<li class="msg-right">
+
+//mostrar mensaje en pantalla operador
+for (let i = 1; i < 14; i++) {
+socket.on('message:usercorte'+(i), function(data){
+  document.getElementById('message'+(i)).innerHTML +=  `<li class="msg-right">
   <div class="msg-left-sub">
-    <img src="/logos/a1.png">
-    <div class="msg-desc">
+    <img src="/logos/a${(i)}.png">
+    <div class="msg-desc text-center">
     ${data.mensaje}
     </div>
+    <small class="time">${data.hora}</small>
   </div>
 </li>`
 });
+}
+
+//recibiendo chat-calidad
+for (let i = 1; i < 14; i++) {
+  socket.on('message:calidaduser'+(i), function(data){
+      document.getElementById('message'+(i)).innerHTML +=  `<li class="msg-left">
+      <div class="msg-left-sub">
+          <img src="/logos/c.png">
+          <div class="msg-desc">
+          ${data.mensaje}
+          </div>
+          <small class="time">${data.hora}</small>
+      </div>
+  </li>`
+    });
+
+}

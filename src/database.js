@@ -1,7 +1,6 @@
 const mysql = require('mysql');
 const {promisify} = require('util');
 const {database} = require('./keys');
-mysql.createConnection({multipleStatements: true});
 
 const pool = mysql.createPool(database);
 

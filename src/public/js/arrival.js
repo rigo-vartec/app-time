@@ -1,5 +1,5 @@
 
-let copytext = setInterval(copy, 100);
+
 
 function Validateform(){
  let opmantto = document.getElementById("op_mantto").value;
@@ -30,7 +30,6 @@ function Cancelform() {
 
 function resta() {
     Timer() ;
-    
         document.getElementById("hora-llegada").value = hora+":"+minutos+":"+segundos;
         inicio = document.getElementById("hora-inicio").value;
         fin = document.getElementById("hora-llegada").value;

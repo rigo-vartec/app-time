@@ -12,15 +12,19 @@
             </div>
             <div class="card-body mx-auto">
                 <div class="form-group">
-                    {{> mensage }}
+                    <input type="text" class="form-control" name="num_ope" placeholder="Nº OPERADOR" id="text" autofocus
+                        required>
                 </div>
                 <form action="/averia/add" method="POST" id="test">
                     <div style="display: none;">
                         <div class="form-group">
+                            <input type="text" class="form-control" name="num_ope" id="text1">
+                        </div>
+                        <div class="form-group">
                             <input type="text" class="form-control" name="turno" id="turno">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="num_machine" id="username" value="A01">
+                            <input type="text" class="form-control" name="num_machine" id="username" value="A02">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="hora-inicio" name="start_time">
@@ -45,7 +49,13 @@
                 <form action="/incidencia/add" method="POST" id="test1">
                     <div style="display:none;">
                         <div class="form-group">
+                            <input type="text" class="form-control" name="num_ope" placeholder="Nº OPERADOR" id="text2">
+                        </div>
+                        <div class="form-group">
                             <input type="text" class="form-control" name="turno" id="turno-1">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="num_machine" value="A01">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="hora-inicio-1" name="start_time">
@@ -77,7 +87,7 @@
         </div>
         <div class="app-content-left">
             <div class="card left-center text-center">
-                <H1>A01</H1>
+                <H1>A02</H1>
                 <div class="row">
                     <div class="col">
                         <p id="fecha" class="form-control"></p>
@@ -102,15 +112,15 @@
                     <div class="chat form-group">
                         <div class="message text-center">
                             <ul>
-                                <div id="message1">
-
+                                <div id="message2">
+                                    
                                 </div>
                             </ul>
                         </div>
                     </div>
                     <div class="form-group text-center">
                         <input type="text" id="mensaje">
-                        <button class="btn-send" onclick="enviarchat(1)"><i class="fa fa-paper-plane"></i></button>
+                        <button class="btn-send" onclick="enviarchat(2)"><i class="fa fa-paper-plane"></i></button>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="registro-produccion" role="tabpanel"
@@ -121,7 +131,7 @@
                             <p class="card-text">Lleva el registro de producción de cada hora.</p>
                             <form action="/registro/produccion/maquinas" method="POST">
                                 <div style="display:none" class="form-group">
-                                    <input type="text" class="form-control" name="num_machine" value="A01">
+                                    <input type="text" class="form-control" name="num_machine" value="A02">
                                     <input type="text" class="form-control" name="turno" id="turno-2">
                                 </div>
                                 <div class="form-group">
@@ -136,14 +146,9 @@
                         <div class="card-header">AVERIAS E INCIDENCIAS</div>
                         <div class="card-body mx-auto">
                             <p class="card-text">Visualiza el estado de tus averias e incidencias.</p>
-                            {{#if user}}
-                            <div class="col">
-                                <a href="/user/logged/operador_corte" class="btn btn-outline-info my-2 my-sm-0">Ir</a>
-                            </div>
-                            {{else}}
                             <form action="/login/maquinas" method="POST">
                                 <div style="display:none" class="form-group">
-                                    <input type="text" class="form-control" name="num_maquina" value="A01">
+                                    <input type="text" class="form-control" name="num_maquina" value="A02">
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name="username" placeholder="Nº Operador" class="form-control"
@@ -157,8 +162,6 @@
                                     <button class="btn btn-primary btn-block">Login</button>
                                 </div>
                             </form>
-                            {{/if}}
-
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ text3= parseInt (document.getElementById("hora_3").value);
 
 
 window.addEventListener('load', Stop, false);
+
 function Stop(){
     if (text1==0) {
         document.getElementById("button1").style.display = "block";

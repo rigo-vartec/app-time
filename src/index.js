@@ -8,10 +8,6 @@ const session = require('express-session');
 const MySQLStore = require('express-mysql-session');
 const passport = require('passport');
 const realtime = require('./socket');
-
-const PORT = 4000;
-const IP = '192.168.1.167';
-
 const { database } = require('./keys');
 
 //iniciar
@@ -48,15 +44,13 @@ sessionMiddleware = session({
 });
 
 realtime(server,sessionMiddleware);
-
-
 app.use(flash());
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
-app.use(express.json());
-app.use(passport.initialize());
-app.use(passport.session());
-//variables globales
+app.use(express.json());            
+app.use(passport.initialize()); 
+app.use(passport.session());  
+//variables globales  
 app.use((req, res, next) => {
    app.locals.info = req.flash('info');
    app.locals.user = req.user;
@@ -76,8 +70,8 @@ app.use('/static', express.static(__dirname + '/public'));
 
 //iniciar servidor
 
-server.listen(PORT, () => {
-  console.log("your http server listening on the port " + IP + ":" + PORT + "/");
+server.listen(4000, () => {
+  console.log("your http server listening on the port 4000" + "/");
 });
 
 

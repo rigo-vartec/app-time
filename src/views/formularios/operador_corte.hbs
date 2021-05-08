@@ -1,42 +1,66 @@
-<link rel="stylesheet" href="/css/styles-1.css">
-<div class="row p-4">
-    <div class="col-md-5 mx-auto">
-        <div class="card">
-            <div class="card-body text-center">
-                <div class="form-group">
-                    <h1>OPERADOR DE CORTE</h1>
-                </div>
-                <div class="form-group">
-                    <p id="fecha" class="form-control"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row p-4">
-        <div class="col-sm-5 p-4 mx-auto ">
-            <div class="card text-white bg-secondary mb-3 text-center">
-                <div class="card-header">AVERIAS
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Reporta el estado de tus averias</p>
-                        <div class="col">
-                        <a href="/averias/operador/buscar" class="btn btn-success">BUSCAR</a>
-                        </div>
-                </div>
-            </div>
-        </div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/estilo-formulario-u.css">
 
-        <div class="col-sm-5 p-4 mx-auto">
-            <div class="card text-white bg-secondary mb-3 text-center">
-                <div class="card-header">INCIDENCIAS</div>
-                <div class="card-body">
-                    <p class="card-text">Conoce el tiempo total de tus incidencias</p>
-                        <div class="col">
-                        <a href="/incidencias/operador/buscar" class="btn btn-success">BUSCAR</a>
+<body class="body-light-grey">
+    {{> navbar }}
+    <div class="full-height">
+        <div class="app-content-right">
+            <div class="contenedor-img text-center">
+                <img src="/logos/user-profile.png" alt="">
+            </div>
+            <div class="card-body mx-auto">
+                <div class="card border-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header"></div>
+                    <div class="card-body text-primary text-center">
+                        <h5 class="card-title">OPERADOR DE CORTE</h5>
+                        {{#each maquina}}
+                        <div class="col mx-auto">
+                            <a href="/inicio/maquina/{{num_machine}}" class="btn btn-primary">Regresar</a>
                         </div>
+                        {{/each}}
+                    </div>
                 </div>
             </div>
         </div>
-        
+        <div class="app-content-left">
+            {{> mensage }}
+            <div class="card left-center text-center">
+                <div class="row">
+                    <div class="col">
+                        <label for="">FECHA</label>
+                        <p id="fecha" class="form-control"></p>
+                    </div>
+                    <div class="col">
+                        <label for="">HORA</label>
+                        <p id="hora" class="form-control"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card left-sub text-center" id="nav-tabContent">
+                <div class="row mx-auto">
+                    <div class="card text-white mb-3 text-center " style="width: 14rem;margin-right: 15px;">
+                        <div class="card-header">AVERIAS
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Reporta el estado de tus averias</p>
+                            <div class="col">
+                                <a href="/averias/operador/buscar" class="btn btn-success">BUSCAR</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card text-white mb-3 text-center" style="width: 14rem;margin-left: 15px;">
+                        <div class="card-header">INCIDENCIAS</div>
+                        <div class="card-body">
+                            <p class="card-text">Conoce el tiempo total de tus incidencias</p>
+                            <div class="col">
+                                <a href="/incidencias/operador/buscar" class="btn btn-success">BUSCAR</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</body>
+
+<script src="/js/reloj.js"> </script>

@@ -1,0 +1,38 @@
+.page-container{
+  max-width: 95%;
+  margin: 15px auto;
+}
+.table-container{
+  max-height: 550px;
+  max-width: 100%;
+  overflow-y: scroll;
+}
+
+.table.table-bordered td,
+.table.table-bordered th{
+background-color: #ffffff;
+padding: 5px;
+min-width: 85px;
+}
+
+.table.table-bordered .sticky{
+  position: sticky;
+  top: 0;
+}
+
+.contenedor-modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.contenedor-modal button {
+  position: relative;
+  top: 40%;
+}
+
+.modal-dialog {
+  max-width: 95%;
+  margin: 25px;
+}

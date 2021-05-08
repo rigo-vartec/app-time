@@ -1,136 +1,314 @@
-<div class="conatiner p-4">
-    <div class="row">
-        {{#each averia}}
-        <div class="col-md-5 mx-auto">
-            <div class="card">
-                <div class="card-header">
-                    <H1>AVERIA CERRADA</H1>
-                </div>
-                <div class="card-body">
-                    <form action="/averia/corte/estatus/{{id}}" method="POST" id="test">
-                        <div class="form-group">
-                            <label>FECHA</label>
-                            <input type="text" class="form-control" id="turno" value="{{creation_date}}" readonly>
+<link rel="stylesheet" href="/css/estilo-m-averia.css">
+
+
+<body class="body-light-grey">
+    {{> navbar }}
+    <div class="full-height">
+        <div class="app-content">
+            <div class="content">
+                <div class="content-left">
+                    <p>PARTE DE AVERIA</p>
+                    <div class="container">
+                        {{#each averia}}
+                        <form action="/averia/corte/estatus/{{id}}" method="POST" id="test">
+                        <div class="grid-container">
+                            <div class="row">
+                                <div id="item1">
+                                    <label class="col-form-label">Parte:</label>
+                                </div>
+                                <div id="item2">
+                                    <input type="text" value="{{id}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="item3">
+                                    <label class="col-form-label">Fecha:</label>
+                                </div>
+                                <div id="item4">
+                                    <input type="text" value="{{creation_date}}" readonly
+                                        class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="item5">
+                                    <label class="col-form-label">operario:</label>
+                                </div>
+                                <div id="item6">
+                                    <input type="text" value="{{num_ope}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="item7">
+                                    <label class="col-form-label">Mantto:</label>
+                                </div>
+                                <div id="item8">
+                                    <input type="text" value="{{op_mantto}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-container">
+                            <div class="top-item row">
+                                <div id="item8">
+                                    <label class="col-form-label">Hora Llamada:</label>
+                                </div>
+                                <div id="item9">
+                                    <input type="text" value="{{start_time}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item10">
+                                    <label class="col-form-label">Puesto:</label>
+                                </div>
+                                <div id="item11">
+                                    <input type="text" value="{{num_machine}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item12">
+                                    <label class="col-form-label">Hora cierre:</label>
+                                </div>
+                                <div id="item13">
+                                    <input type="text" value="{{end_time}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label>TURNO</label>
-                            <input type="text" class="form-control" id="turno" value="{{turno}}" readonly>
+                            <label for="exampleFormControlTextarea1">Observaciones:</label>
+                            <textarea readonly class="form-control" id="exampleFormControlTextarea1" rows="1" ></textarea>
                         </div>
-                        <div class="form-group">
-                            <label>NUMERO DE MAQUINA</label>
-                            <input type="text" class="form-control" name="num_machine" value="{{num_machine}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>NUMERO DE OPERADOR</label>
-                            <input type="text" class="form-control" name="num_ope" value="{{num_ope}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>OPERADOR DE MANTENIMIENTO</label>
-                            <input type="text" class="form-control" name="num_ope" value="{{op_mantto}}" readonly>
-                        </div>
-                        <div class="form-group">
-                         <label for="Select1" >Define el estado de tu averia</label>
-                         <select name="estatus" class="form-control" id="Select1" >
-                            <option value="1">Selecciona el estado</option>
-                            <option value="aprobado">Aprobada</option>
+                        <div class="grid-container">
+                            <div class="top-item row">
+                                <div id="item14">
+                                    <label class="col-form-label">V.º B.º Calidad</label>
+                                </div>
+                                <div id="item15">
+                                    <input id="vbcalidad" type="text" class="form-control-plaintext" value="{{estatus_calidad}}">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item16">
+                                    <label class="col-form-label">V.º B.º Mantto</label>
+                                </div>
+                                <div id="item17">
+                                    <input id="vbcalidad" type="text" class="form-control-plaintext" value="{{estatus_mantto}}">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                         <select name="estatus"  id="Select1" >
+                            <option value="1">Cambiar estado</option>
+                            <option value="aprobado">Aprobar</option>
                             <option value="rechazado">Pedir aclaracion</option>
                         </select>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item18">
+                                    <button type="submit"class="btn btn-primary">CAMBIAR</button>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                        {{/each}}
+                         {{#each averia_mantto}}
+                        <form action="/averia/mantto/estatus/{{id}}" method="POST" id="test">
+                        <div class="grid-container">
+                            <div class="row">
+                                <div id="item1">
+                                    <label class="col-form-label">Parte:</label>
+                                </div>
+                                <div id="item2">
+                                    <input type="text" value="{{id}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="item3">
+                                    <label class="col-form-label">Fecha:</label>
+                                </div>
+                                <div id="item4">
+                                    <input type="text" value="{{creation_date}}" readonly
+                                        class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="item5">
+                                    <label class="col-form-label">operario:</label>
+                                </div>
+                                <div id="item6">
+                                    <input type="text" value="{{num_ope}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="item7">
+                                    <label class="col-form-label">Mantto:</label>
+                                </div>
+                                <div id="item8">
+                                    <input type="text" value="{{op_mantto}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-container">
+                            <div class="top-item row">
+                                <div id="item8">
+                                    <label class="col-form-label">Hora Llamada:</label>
+                                </div>
+                                <div id="item9">
+                                    <input type="text" value="{{start_time}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item10">
+                                    <label class="col-form-label">Puesto:</label>
+                                </div>
+                                <div id="item11">
+                                    <input type="text" value="{{num_machine}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item12">
+                                    <label class="col-form-label">Hora cierre:</label>
+                                </div>
+                                <div id="item13">
+                                    <input type="text" value="{{end_time}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit"class="btn btn-primary btn-block">CAMBIAR</button>
+                            <label for="exampleFormControlTextarea1">Observaciones:</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
                         </div>
-                    </form>
+                        <div class="grid-container">
+                            <div class="top-item row">
+                                <div id="item14">
+                                    <label class="col-form-label">V.º B.º Calidad</label>
+                                </div>
+                                <div id="item15">
+                                    <input id="vbcalidad" type="text" class="form-control-plaintext" value="{{estatus_calidad}}">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item16">
+                                    <label class="col-form-label">V.º B.º Operador</label>
+                                </div>
+                                <div id="item17">
+                                    <input id="vbcalidad" type="text" class="form-control-plaintext" value="{{estatus_corte}}">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                         <select name="estatus"  id="Select1" >
+                            <option value="1">Cambiar estado</option>
+                            <option value="aprobado">Aprobar</option>
+                            <option value="rechazado">Pedir aclaracion</option>
+                        </select>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item18">
+                                    <button type="submit"class="btn btn-primary">CAMBIAR</button>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                        {{/each}}
+                         {{#each averia_calidad}}
+                        <form action="/averia/calidad/estatus/{{id}}" method="POST" id="test">
+                        <div class="grid-container">
+                            <div class="row">
+                                <div id="item1">
+                                    <label class="col-form-label">Parte:</label>
+                                </div>
+                                <div id="item2">
+                                    <input type="text" value="{{id}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="item3">
+                                    <label class="col-form-label">Fecha:</label>
+                                </div>
+                                <div id="item4">
+                                    <input type="text" value="{{creation_date}}" readonly
+                                        class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="item5">
+                                    <label class="col-form-label">operario:</label>
+                                </div>
+                                <div id="item6">
+                                    <input type="text" value="{{num_ope}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="item7">
+                                    <label class="col-form-label">Mantto:</label>
+                                </div>
+                                <div id="item8">
+                                    <input type="text" value="{{op_mantto}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-container">
+                            <div class="top-item row">
+                                <div id="item8">
+                                    <label class="col-form-label">Hora Llamada:</label>
+                                </div>
+                                <div id="item9">
+                                    <input type="text" value="{{start_time}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item10">
+                                    <label class="col-form-label">Puesto:</label>
+                                </div>
+                                <div id="item11">
+                                    <input type="text" value="{{num_machine}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item12">
+                                    <label class="col-form-label">Hora cierre:</label>
+                                </div>
+                                <div id="item13">
+                                    <input type="text" value="{{end_time}}" readonly class="form-control-plaintext">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Observaciones:</label>
+                            <textarea readonly class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                        </div>
+                        <div class="grid-container">
+                            <div class="top-item row">
+                                <div id="item14">
+                                    <label class="col-form-label">V.º B.º Mantto</label>
+                                </div>
+                                <div id="item15">
+                                    <input id="vbcalidad" type="text" class="form-control-plaintext" value="{{estatus_mantto}}">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item16">
+                                    <label class="col-form-label">V.º B.º Operador</label>
+                                </div>
+                                <div id="item17">
+                                    <input id="vbcalidad" type="text" class="form-control-plaintext" value="{{estatus_corte}}">
+                                </div>
+                            </div>
+                            <div class="top-item row">
+                         <select name="estatus"  id="Select1" >
+                            <option value="1">Cambiar estado</option>
+                            <option value="aprobado">Aprobar</option>
+                            <option value="rechazado">Pedir aclaracion</option>
+                        </select>
+                            </div>
+                            <div class="top-item row">
+                                <div id="item18">
+                                    <button type="submit"class="btn btn-primary">CAMBIAR</button>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                        {{/each}}
+                    </div>
                 </div>
             </div>
         </div>
-        {{/each}}
-        {{#each averia_mantto}}
-        <div class="col-md-5 mx-auto">
-            <div class="card">
-                <div class="card-header">
-                    <H1>AVERIA CERRADA</H1>
-                </div>
-                <div class="card-body">
-                    <form action="/averia/mantto/estatus/{{id}}" method="POST" id="test">
-                        <div class="form-group">
-                            <label>FECHA</label>
-                            <input type="text" class="form-control" id="turno" value="{{creation_date}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>TURNO</label>
-                            <input type="text" class="form-control" id="turno" value="{{turno}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>NUMERO DE MAQUINA</label>
-                            <input type="text" class="form-control" name="num_machine" value="{{num_machine}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>NUMERO DE OPERADOR</label>
-                            <input type="text" class="form-control" name="num_ope" value="{{num_ope}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>OPERADOR DE MANTENIMIENTO</label>
-                            <input type="text" class="form-control" name="num_ope" value="{{op_mantto}}" readonly>
-                        </div>
-                        <div class="form-group">
-                         <label for="Select1" >Define el estado de tu averia</label>
-                         <select name="estatus" class="form-control" id="Select1" >
-                            <option value="1">Selecciona el estado</option>
-                            <option value="aprobado">Aprobada</option>
-                            <option value="rechazado">Pedir aclaracion</option>
-                        </select>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit"class="btn btn-primary btn-block">CAMBIAR</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        {{/each}}
-        {{#each averia_calidad}}
-        <div class="col-md-5 mx-auto">
-            <div class="card">
-                <div class="card-header">
-                    <H1>AVERIA CERRADA</H1>
-                </div>
-                <div class="card-body">
-                    <form action="/averia/calidad/estatus/{{id}}" method="POST" id="test">
-                        <div class="form-group">
-                            <label>FECHA</label>
-                            <input type="text" class="form-control" id="turno" value="{{creation_date}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>TURNO</label>
-                            <input type="text" class="form-control" id="turno" value="{{turno}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>NUMERO DE MAQUINA</label>
-                            <input type="text" class="form-control" name="num_machine" value="{{num_machine}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>NUMERO DE OPERADOR</label>
-                            <input type="text" class="form-control" name="num_ope" value="{{num_ope}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>OPERADOR DE MANTENIMIENTO</label>
-                            <input type="text" class="form-control" name="num_ope" value="{{op_mantto}}" readonly>
-                        </div>
-                        <div class="form-group">
-                         <label for="Select1" >Define el estado de tu averia</label>
-                         <select name="estatus" class="form-control" id="Select1" >
-                            <option value="1">Selecciona el estado</option>
-                            <option value="aprobado">Aprobada</option>
-                            <option value="rechazado">Pedir aclaracion</option>
-                        </select>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit"class="btn btn-primary btn-block">CAMBIAR</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        {{/each}}
     </div>
-</div>
+</body>

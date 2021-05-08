@@ -2,64 +2,17 @@ const express = require("express");
 const router = express.Router();
 const db = require("../database");
 
-router.post('/add', async(req,res) =>{
-    const {creation_date,turno,num_maquina,num_op,start_date,start_time} = req.body;
-    const newave={
-        creation_date,
-           turno,
-           num_maquina,
-            num_op,
-            start_date,
-            start_time
-       };
-    
-      req.flash('info', 'Por favor indica si ha llegado el operador de mantenimiento');
-      await db.query('INSERT INTO averias set?',[newave]);
-        res.redirect('/links/arrival');
-    });
-    
-    router.get('/arrival', async(req, res) =>{
-        const averia =await db.query('SELECT* from averias order by id desc limit 1');
-        console.log(averia);
-        res.render('averias/arrival', {averia});
-    });
 
-router.get('/arrival', async(req, res) =>{
-    const averia =await db.query('SELECT* from averias order by id desc limit 1');
-    console.log(averia);
-    res.render('averias/arrival', {averia});
-});
+   
 
-router.post('/arrival/:id', async(req,res) =>{
- const {id} = req.params;
- const {op_mantto,arrival_time,opening_time} = req.body;
- const newave ={
-     op_mantto,
-     arrival_time,
-     opening_time
- };
- await db.query('UPDATE averias_x06 set ? WHERE id = ?', [newave, id] );
- req.flash('info', 'El tiempo de tolerancia fue agotado y se inicio una nueva averia para esta maquina');
- res.redirect('/links/new');
-});
 
-router.post('/arrival/close/:id', async(req,res) =>{
-    const {id} = req.params;
-    const {op_mantto,arrival_time,canceled_time} = req.body;
-    const newave ={
-        op_mantto,
-        arrival_time,
-        canceled_time
-    };
-    await db.query('UPDATE averias_x06 set ? WHERE id = ?', [newave, id] );
-    req.flash('info', 'La averia fue cancelada con exito');
-    res.redirect('/links/add');
-   });
+
+
 
 
 router.post('/buscador_averias', async(req, res) =>{
     let turno = req.body.turno;
-    const averia =await db.query('SELECT * FROM averias WHERE fecha = CURDATE() AND turno=?', [turno]);
+    const averia =await db.query('SELECT * FROM averias_1 WHERE fecha = CURDATE() AND turno=?', [turno]);
     res.render('averias/buscador_mañana', { averia });
 });
 
@@ -71,15 +24,23 @@ router.post('/modificar', async(req, res) =>{
   });
   
 router.get('/inicio', (req, res) =>{
-    res.render('formularios/inicio',);
+    res.render('formularios/inicio_supercorte',);
 });
 
 
 
-router.post('/reportes', async(req, res) =>{
+router.get('/reportes', async(req, res) =>{
     let turno = req.body.turno;
-    const reporte_a01 =await db.query('SELECT * FROM averias WHERE fecha = CURDATE() AND turno=?',[turno]);
-    const reporte_a01_1 =await db.query('SELECT * FROM averias WHERE fecha = DATE_SUB(CURDATE(), INTERVAL 1 DAY) AND start_time>"22:59:59" AND turno=?',[turno]);
+
+    a = [01, 02, 03, 04];
+(function l () { for (var i = 0, n = a.length; i < n; i++) {
+  var e = "b"+[i];
+  console.log(e);
+}}) ();
+
+    const reporte_a01 =await db.query('SELECT * FROM averias_cerradas WHERE fecha = CURDATE() AND turno=?',[turno]);
+    const reporte_a01_1 =await db.query('SELECT * FROM averias_cerradas WHERE fecha = DATE_SUB(CURDATE(), INTERVAL 1 DAY) AND start_time>"22:59:59" AND turno=?',[turno]);
+    
     /*const reporte_a02 =await db.query('SELECT * FROM averias_a02 WHERE fecha = CURDATE() AND turno="NOCHE"');
     const reporte_a03 =await db.query('SELECT * FROM averias_a03 WHERE fecha = CURDATE() AND turno="NOCHE"');
     const reporte_a04 =await db.query('SELECT * FROM averias_a04 WHERE fecha = CURDATE() AND turno="NOCHE"');
@@ -111,12 +72,18 @@ router.get('/graficas', async(req, res) =>{
     res.render('produccion/graficas', {a01});
 });
 
+router.get('/produccion/turno', async(req, res) =>{
+    const produccion =await db.query('SELECT * FROM produccion ORDER BY num_machine ASC');
+    const averias =await db.query('SELECT * FROM averias_cerradas LIMIT 5');
+    console.log(produccion);
+    //const a01 = produccion[1];
+    res.render('produccion/produccion-turno',{produccion,averias});
+});
+
 router.post('/averias/operador/corte/:id', async(req, res) =>{
     const {id} = req.params;
     const averias =await db.query('SELECT * FROM averias WHERE user_id= ? and fecha = CURDATE()',[id]);
     res.render('averias/averias_operador', { averias});
 });
-
-
 
 module.exports = router;
