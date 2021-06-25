@@ -30,7 +30,7 @@ function Closefunction() {
 
 function resta() {
     Timer();
-              document.getElementById("hora-fin").value = hora+":"+minutos+":"+segundos;
+        document.getElementById("hora-fin").value = hora+":"+minutos+":"+segundos;
           inicio = document.getElementById("hora-llegada").value;
           fin = document.getElementById("hora-fin").value;
           inicioSegundos = parseInt(inicio.substr(6,5));
@@ -97,4 +97,3 @@ function Secondpassed() {
         seconds--;
     }
 }
-

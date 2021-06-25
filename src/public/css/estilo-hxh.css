@@ -14,7 +14,10 @@ h2{
 p {
   font-size: 17px;
 }
-
+ 
+div#contenedor-principal{
+  height: 100%;
+}
 .card {
   cursor: pointer;
   height: 20em;
@@ -65,4 +68,38 @@ p {
 .child:nth-child(5) {
   --offset: 4;
   z-index: 0;
+}
+
+input#turno{
+  display: none;
+}
+
+div.col-md-5{
+display: none;
+}
+label{
+  margin-bottom: 0%;
+}
+div.hora-mañana{
+  display: none;
+}
+div.hora-tarde{
+  display: none;
+}
+div.hora-noche{
+  display: none;
+}
+
+input.form-control-1{
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+
+  div.row{
+    margin-right: 0%;
+    margin-left: 0%;
+  }
 }

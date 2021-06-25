@@ -6,14 +6,11 @@ var d = new Date(),
     month = (d.getMonth()+1),
     day = d.getDate();
     
-    
-
 let hora = h.toString(),
 minutos = m.toString(),
 segundos = s.toString(),
 mes = month.toString(),
 dia = day.toString();
-
 
 if (hora.length < 2) {
     hora = "0" + hora;

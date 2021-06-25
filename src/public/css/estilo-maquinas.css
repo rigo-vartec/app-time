@@ -32,7 +32,6 @@ html, body {
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
   }
 
-  
   .card.left-center{
     height: 20%;
     background-color: rgb(234 236 239);
@@ -46,6 +45,10 @@ html, body {
       height: 68%;
   }
 
+  input.formtext{
+    display: none;
+  }
+
   .tab-pane{
       height: 100%;
   }
@@ -53,7 +56,6 @@ html, body {
   .message.form-group{
       height: 10%;
   }
-
 
   p{
     margin-bottom: 0px;
@@ -173,6 +175,19 @@ html, body {
       padding-top: 10%;
   }
   
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #ffffff;
+    padding: 5px;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    font-size: 10px;
+    width: 50px;
+    text-align: center;
+  }
 
   @media (min-width: 601px){
     .app-content-right {
@@ -183,3 +198,14 @@ html, body {
         width: 75%;
     }
 }
+
+@media only screen and (max-width: 500px) {
+  .app-content-right {
+    display: none;
+}
+
+.app-content-left {
+  width: 99%;
+}
+}
+

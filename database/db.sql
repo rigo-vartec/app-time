@@ -48,6 +48,45 @@ CREATE TABLE averias_1(
     description text
 );
 
+CREATE TABLE averias_canceladas(
+    id INT(10) NOT NULL,
+    creation_date VARCHAR(20) NOT NULL,
+    num_machine VARCHAR(5) NOT NULL,
+    num_ope INT(10) ,
+    turno VARCHAR(16) NOT NULL,
+    op_mantto INT(10) NOT NULL,
+    start_time TIME NOT NULL,
+    start_date VARCHAR(50) NOT NULL,
+    arrival_time TIME NOT NULL,
+    sub_time TIME NOT NULL,
+    canceled_time TIME NOT NULL,
+    opening_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    total_time TIME NOT NULL,
+    type_break VARCHAR(80) NOT NULL,
+    user_id INT(10) NOT NULL
+);
+
+CREATE TABLE averias_cerradas(
+    id INT(10) NOT NULL,
+    creation_date VARCHAR(20) NOT NULL,
+    num_machine VARCHAR(5) NOT NULL,
+    num_ope INT(10) ,
+    turno VARCHAR(16) NOT NULL,
+    op_mantto INT(10) NOT NULL,
+    start_time TIME NOT NULL,
+    start_date VARCHAR(50) NOT NULL,
+    arrival_time TIME NOT NULL,
+    sub_time TIME NOT NULL,
+    canceled_time TIME NOT NULL,
+    opening_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    total_time TIME NOT NULL,
+    type_break VARCHAR(80) NOT NULL,
+    user_id INT(10) NOT NULL,
+    description text
+);
+
 CREATE TABLE averias(
     id INT(10) NOT NULL,
     creation_date VARCHAR(20) NOT NULL,
@@ -88,6 +127,7 @@ CREATE TABLE incidencias(
  
 "" : 100, "3:00-4:00pm": 400, "4:00-5:00pm": 500, "5:00-6:00pm": 100, "6:00-7:00pm": 800, "7:00-8:00pm": 200,"8:00-9:00pm": 900,"9:00-10:00pm": 500,"10:00-11:00pm": 100 
  CREATE TABLE produccion(
+    id INT(5) NOT NULL,
     num_machine VARCHAR(5) NOT NULL,
     turno VARCHAR(55) NOT NULL,
     hora_1 INT(5) NOT NULL,
@@ -98,5 +138,6 @@ CREATE TABLE incidencias(
     hora_6 INT(5) NOT NULL,
     hora_7 INT(5) NOT NULL,
     hora_8 INT(5) NOT NULL,
-    hora_9 INT(5) NOT NULL
+    hora_9 INT(5) NOT NULL,
+    step VARCHAR(5)NOT NULL
 );

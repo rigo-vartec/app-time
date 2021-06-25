@@ -18,7 +18,7 @@ router.post('/login', async(req, res) =>{
     if(row.length > 0){
         const user = row[0];
         passport.authenticate('local.login', {
-    successRedirect: '/inicio/logged/'+ user.machine,
+    successRedirect: '/inicio/logged/'+ user.page,
     failureRedirect: '/login',
     failureFlash: true
     })(req, res);

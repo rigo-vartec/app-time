@@ -3,6 +3,7 @@ let username = document.getElementById('username');
 let output1 = document.getElementById('message01');
 let output2 = document.getElementById('message02');
 window.addEventListener('load',Emitir, false);
+
 function Emitir(){
     socket.emit('join',{
         username: username.value
@@ -11,21 +12,21 @@ function Emitir(){
 
 
 function ocultarchat(){
-    let chatmensajes = document.getElementsByClassName("oculto")
+    let chatmensajes = document.getElementsByClassName("oculto");
     for (let i = 0; i < chatmensajes.length; i++) {
             chatmensajes[i].style.display="none";
     }
 }
 
 function ocultaruserchat(){
-    let ocultaruserchat = document.getElementsByClassName("chat")
+    let ocultaruserchat = document.getElementsByClassName("chat");
     for (let i = 0; i < ocultaruserchat.length; i++) {
             ocultaruserchat[i].style.display="none";
     }
 }
 
 function mostraruserchat(){
-    let mostraruserchat = document.getElementsByClassName("chat")
+    let mostraruserchat = document.getElementsByClassName("chat");
     for (let i = 0; i < mostraruserchat.length; i++) {
             mostraruserchat[i].style.display="block";
     }

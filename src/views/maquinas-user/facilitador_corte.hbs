@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="/css/estilo-maquinas.css">
+
+<body class="body-light-grey">
+    {{> navbar }}
+    <div class="full-height">
+        <div class="app-content-right">
+            <div class="contenedor-img text-center">
+                <img src="/logos/user-profile.png" alt="">
+            </div>
+            <div class="card-body mx-auto">
+                <div class="form-group">
+                </div>
+            </div>
+        </div>
+        <div class="app-content-left">
+            <div class="card left-center text-center">
+                <H1>Facilitador de Corte</H1>
+                <div class="row">
+                    <div class="col">
+                        <p id="fecha" class="form-control"></p>
+                    </div>
+                    <div class="col">
+                        <p id="hora" class="form-control"></p>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link" id="nav-produccion-tab" data-toggle="tab" href="#registro-produccion"
+                        role="tab" aria-controls="nav-produccion" aria-selected="false">Registro de produccion</a>
+                    <a class="nav-item nav-link" id="nav-averias-tab" data-toggle="tab" href="#averias" role="tab"
+                        aria-controls="nav-averias" aria-selected="false">Averias</a>
+                </div>
+            </nav>
+            <div class="card sub-right tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="registro-produccion" role="tabpanel"
+                    aria-labelledby="nav-produccion-tab">
+                    <div class="row" id="bloque1">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="grid-container">
+                                        <input type="text" class="form-control" name="turno" id="turno">
+                                        <div class="grid-item">A12</div>
+                                        <div class="grid-item">G01</div>
+                                        <div class="grid-item">A11</div>
+                                        <div class="grid-item">A10</div>
+                                        <div class="grid-item">G04</div>
+                                    </div>
+                                    <a href="produccion/bloque1" class="btn btn-primary">Bloque 1</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="grid-container">
+                                        <div class="grid-item">G03</div>
+                                        <div class="grid-item">A03</div>
+                                        <div class="grid-item">G02</div>
+                                        <div class="grid-item">A09</div>
+                                        <div class="grid-item">A01</div>
+                                    </div>
+                                    <a href="#" class="btn btn-primary">Bloque 2</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="bloque">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="grid-container">
+                                        <div class="grid-item">A04</div>
+                                        <div class="grid-item">X06</div>
+                                        <div class="grid-item">A05</div>
+                                        <div class="grid-item">X07</div>
+                                    </div>
+                                    <a href="#" class="btn btn-primary">Bloque 3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="grid-container">
+                                        <div class="grid-item">A06</div>
+                                        <div class="grid-item">A02</div>
+                                        <div class="grid-item">A07</div>
+                                        <div class="grid-item">A08</div>
+                                        <div class="grid-item">A13</div>
+                                    </div>
+                                    <a href="#" class="btn btn-primary">Bloque 4</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/js/reloj.js"> </script>
+<script src="/js/page.js"> </script>
