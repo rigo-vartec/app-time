@@ -28,38 +28,13 @@ if (dia.length < 2) {
     dia = "0" + dia;
 }
 
-var meses = new Array(
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre"
-  );
-  var diasSemana = new Array(
-    "Domingo",
-    "Lunes",
-    "Martes",
-    "Miércoles",
-    "Jueves",
-    "Viernes",
-    "Sábado"
-  );
+var meses = new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
-  document.getElementById("fecha").innerHTML =d.getDate() + 
-  " de "     +  meses[d.getMonth()] + " de " +d.getFullYear();
+var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado");
 
-  
+document.getElementById("fecha").innerHTML =d.getDate() + " de "     +  meses[d.getMonth()] + " de " +d.getFullYear();
 
-
-    document.getElementById("hora").innerHTML =
-        hora + ":" + minutos + ":" + segundos;
+document.getElementById("hora").innerHTML = hora + ":" + minutos + ":" + segundos;
 
     
 

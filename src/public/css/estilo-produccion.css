@@ -90,15 +90,12 @@ min-width: 85px;
 }
 
 @media only screen and (max-height: 800px) {
-  .app-content-right {
-    display: none;
-}
-
+  
 .app-content-left {
   width: 99%;
 }
   .app-content-left {
-    height: 94%;
+    height: 99%;
   }
 
   .full-height{
@@ -106,7 +103,7 @@ min-width: 85px;
   }
 
   .card.left-center {
-    height: 15%;
+    height: 20%;
   }
 
   .nav.nav-tabs {
@@ -118,7 +115,7 @@ min-width: 85px;
   }
 
   .card.sub-right {
-    height: 75%;
+    height: 55%;
   }
 
   .btn-primary {

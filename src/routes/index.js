@@ -27,7 +27,6 @@ router.get("/inicio/logged/:inicio", async (req, res) => {
 
 router.post("/incidencia/add", async (req, res) => {
   let username = req.body.num_ope;
-  let maquina = req.body.num_machine;
   const {
     creation_date,
     turno,
@@ -41,7 +40,7 @@ router.post("/incidencia/add", async (req, res) => {
     creation_date,
     turno,
     num_machine,
-    num_ope: req.user.username,
+    num_ope,
     start_date,
     start_time,
     step,
@@ -95,13 +94,12 @@ router.post("/incidencia/new/:id", async (req, res) => {
 
 router.post("/averia/add", async (req, res) => {
   let username = req.body.num_ope;
-  let maquina = req.body.num_machine;
-  const { creation_date, turno, start_date, start_time, step, page } = req.body;
+  const { creation_date,num_ope, turno,num_machine, start_date, start_time, step, page } = req.body;
   const newave = {
     creation_date,
     turno,
-    num_machine: req.user.machine,
-    num_ope: req.user.username,
+    num_machine,
+    num_ope,
     start_date,
     start_time,
     step,
@@ -154,9 +152,6 @@ router.post("/arrival/validate/:id", async (req, res) => {
     [username]
   );
   if (row.length > 0) {
-    const id1 = row[0];
-    const mantto_id = id1.id;
-
     await db.query("UPDATE averias_1 set ? WHERE id = ?", [newave, id]);
     const averias = await db.query("SELECT * FROM averias_1 WHERE id=?", [id]);
     const alert = "True";
@@ -229,13 +224,11 @@ router.post("/arrival/close/validated/:id", async (req, res) => {
     total_time,
     type_break,
     user_id,
-    mantto_id,
     step,
   } = req.body;
   const newave = {
     canceled_time,
     type_break,
-    mantto_id,
     step,
   };
   const newave2 = {
@@ -252,7 +245,6 @@ router.post("/arrival/close/validated/:id", async (req, res) => {
     total_time,
     type_break,
     user_id,
-    mantto_id,
   };
   await db.query("INSERT INTO averias_canceladas set?", [newave2]);
   await db.query("UPDATE averias_1 set ? WHERE id = ?", [newave, id]);
@@ -515,7 +507,7 @@ router.get("/tiempo-averias", (req, res) => {
 });
 
 router.get("/produccion/facilitador", async (req, res) => {
-  res.render("formularios/facilitador");
+  res.render("produccion/facilitador");
 });
 
 router.post("/produccion/bloque1", async (req, res) => {
@@ -861,16 +853,25 @@ router.post("/produccion/NOCHE/:bloque/:id", async (req, res) => {
         res.render("produccion/bloque1",{registros,turno,alert2});
       break;
     case "2":
-        const registros1 = await db.query('SELECT * FROM produccion_n WHERE fecha = CURDATE() AND bloque="2"');
-        res.render("produccion/bloque1",{registros1,turno,alert2});
+      const row = await db.query('SELECT * FROM produccion_n WHERE fecha = CURDATE() AND bloque="2"');
+      if (row.length > 0) {
+        const registros = await db.query('SELECT * FROM produccion_n WHERE fecha = CURDATE() AND bloque="2"');
+        res.render("produccion/bloque1",{registros,turno,alert2});
+      }
       break;
     case "3":
-        const registros2 = await db.query('SELECT * FROM produccion_n WHERE fecha = CURDATE() AND bloque="3"');
-        res.render("produccion/bloque2",{registros2,turno,alert2});
+      const row1 = await db.query('SELECT * FROM produccion_n WHERE fecha = CURDATE() AND bloque="3"');
+      if (row1.length > 0) {
+        const registros = await db.query('SELECT * FROM produccion_n WHERE fecha = CURDATE() AND bloque="3"');
+        res.render("produccion/bloque2",{registros,turno,alert2});
+      }
     break;
     case "4":
-        const registros3 = await db.query('SELECT * FROM produccion_n WHERE fecha = CURDATE() AND bloque="4"');
-        res.render("produccion/bloque1",{registros3,turno,alert2});
+      const row2 = await db.query('SELECT * FROM produccion_n WHERE fecha = CURDATE() AND bloque="4"');
+      if (row2.length > 0) {
+        const registros = await db.query('SELECT * FROM produccion_n WHERE fecha = CURDATE() AND bloque="4"');
+        res.render("produccion/bloque1",{registros,turno,alert2});
+      }
     break;
     default:
       break;

@@ -1,4 +1,4 @@
-const db = require('./database')
+
 module.exports = function (server,sessionMiddleware) {
   const io = require("socket.io")(server);
   

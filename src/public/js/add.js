@@ -1,36 +1,33 @@
 const socket = io();
 let turno = d.getHours();
 
-document.getElementById("fecha-inicio").value =diasSemana[d.getDay()] + ", " + d.getDate() + 
-  " de"     +  meses[d.getMonth()] + " de " +d.getFullYear();
+document.getElementById("fecha-inicio").value =diasSemana[d.getDay()] + ", " + d.getDate() + " de"     +  meses[d.getMonth()] + " de " +d.getFullYear();
 
-document.getElementById("fecha-creacion").value =
-    dia + "-" + mes + "-" + d.getFullYear();
+document.getElementById("fecha-creacion").value = dia + "-" + mes + "-" + d.getFullYear();
     
-document.getElementById("fecha-inicio-1").value =diasSemana[d.getDay()] + ", " + d.getDate() + 
-    " de"     +  meses[d.getMonth()] + " de " +d.getFullYear();
+document.getElementById("fecha-inicio-1").value =diasSemana[d.getDay()] + ", " + d.getDate() + " de"     +  meses[d.getMonth()] + " de " +d.getFullYear();
 
 document.getElementById("fecha-creacion-1").value = dia + "-" + mes + "-" + d.getFullYear();
 
 if (turno > 22) {
-  document.getElementById("turno").value = "NOCHE";
-  document.getElementById("turno-1").value = "NOCHE";
-  document.getElementById("turno-2").value = "NOCHE";
+  for (let i = 0; i < 3; i++) {
+  document.getElementsByName("turno")[i].value = "NOCHE";
+  }
 }
-if (turno > -1 && turno < 6) {
-  document.getElementById("turno").value = "NOCHE";
-  document.getElementById("turno-1").value = "NOCHE";
-  document.getElementById("turno-2").value = "NOCHE";
+if (turno == 0 && turno < 6) {
+  for (let i = 0; i < 3; i++) {
+  document.getElementsByName("turno")[i].value = "NOCHE";
+  }
 }
 if (turno > 5 && turno < 14) {
-  document.getElementById("turno").value = "MAÑANA";
-  document.getElementById("turno-1").value = "MAÑANA";
-  document.getElementById("turno-2").value = "MAÑANA";
+  for (let i = 0; i < 3; i++) {
+  document.getElementsByName("turno")[i].value = "MAÑANA";
+  }
 }
 if (turno > 13 && turno < 23) {
-  document.getElementById("turno").value = "TARDE";
-  document.getElementById("turno-1").value = "TARDE";
-  document.getElementById("turno-2").value = "TARDE";
+  for (let i = 0; i < 3; i++) {
+  document.getElementsByName("turno")[i].value = "TARDE";
+  }
 }
 
 let username = document.getElementById('username');

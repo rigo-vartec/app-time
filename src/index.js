@@ -18,7 +18,7 @@ const server = http.Server(app);
 
 
 //configuraciones servidor
-app.set('port', process.env.PORT || 4000);
+//app.set('port', process.env.PORT || 4000);
 app.set('views',path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
@@ -69,8 +69,7 @@ app.use(express.static('public'));
 app.use('/static', express.static(__dirname + '/public'));
 
 //iniciar servidor
-
-app.listen(4000, () => {
+server.listen(4000, () => {
   console.log("your http server listening on the port 4000" + "/");
 });
 

@@ -1,7 +1,6 @@
 <script src="/socket.io/socket.io.js"></script>
 <link rel="stylesheet" href="/css/estilo-maquinas.css">
 
-
 <body class="body-light-grey">
     {{> navbar }}
     <div class="full-height">
@@ -17,13 +16,13 @@
                 <form action="/averia/add" method="POST" id="test">
                     <div style="display: none;">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="num_ope" id="username" value="{{username}}">
+                            <input type="text" class="form-control" name="num_ope" value="{{username}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="turno" id="turno">
+                            <input type="text" class="form-control" name="turno">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="num_machine" id="num_machine" value="{{machine}}">
+                            <input type="text" class="form-control" name="num_machine" id="username" value="{{page}}">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="hora-inicio" name="start_time">
@@ -48,7 +47,7 @@
                 <form action="/incidencia/add" method="POST" id="test1">
                     <div style="display:none;">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="turno" id="turno-1">
+                            <input type="text" class="form-control" name="turno">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="hora-inicio-1" name="start_time">
@@ -125,7 +124,7 @@
                             <form action="/registro/produccion/maquinas" method="POST">
                                 <div style="display:none" class="form-group">
                                     <input type="text" class="form-control" name="num_machine" value="A01">
-                                    <input type="text" class="form-control" name="turno" id="turno-2">
+                                    <input type="text" class="form-control" name="turno">
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-block">Registrar</button>
@@ -172,8 +171,6 @@
 
 <script src="/js/reloj.js"> </script>
 <script src="/js/add.js"> </script>
-
-
 
 <!--<body>
     <video id="vid" autoplay></video>

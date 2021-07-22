@@ -2,23 +2,13 @@ CREATE DATABASE database_demo;
 
 USE database_demo;
 
-CREATE TABLE roles(
-    id INT(10) NOT NULL,
-    rol VARCHAR(30) NOT NULL
-);
-
-ALTER TABLE roles
-ADD PRIMARY KEY(id);
-
-ALTER TABLE roles
-MODIFY id INT(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2 ;
 
 CREATE TABLE users(
     id INT(10) NOT NULL ,
     username INT(10) NOT NULL,
-    password VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL,
     fullname VARCHAR(50) NOT NULL,
-    machine VARCHAR(25) NOT NULL,
+    page VARCHAR(25) NOT NULL,
     rol VARCHAR(50) NOT NULL
 );
 
@@ -28,8 +18,9 @@ ADD PRIMARY KEY(id);
 ALTER TABLE users
 MODIFY id INT(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 2 ;
 
-CREATE TABLE averias_1(
+CREATE TABLE averias(
     id INT(10) NOT NULL,
+    fecha date current_timestamp	NOT NULL,
     creation_date VARCHAR(20) NOT NULL,
     num_machine VARCHAR(5) NOT NULL,
     num_ope INT(10) ,

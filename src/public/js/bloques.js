@@ -6,198 +6,72 @@ let horariom = new Array("0","1","2","3","4","5","0","1","2","3","4","5","6","7"
 let horariot = new Array("9","1","2","3","4","5","0","1","2","3","4","5","6","7","8","0","1","2","3","4","5","6","7","8","9"
 );
 let horarion = new Array("0", "1", "2", "3", "4", "5");
-let hm = parseInt(horariom[h]);
-let ht = parseInt(horariot[h]);
-let hn = parseInt(horarion[h]);
+
 let turn = document.getElementById("turno").value;
 let turno = turn.toLowerCase();
-let hsm = parseInt(hm+1),hsm1 = parseInt(hm+11),hsm2 = parseInt(hm+21),hsm3 = parseInt(hm+31),hsm4 = parseInt(hm+41);
-let hst = parseInt(ht+1),hst1 = parseInt(ht+11),hst2 = parseInt(ht+21),hst3 = parseInt(ht+31),hst4 = parseInt(ht+41);
-let hsn = parseInt(hn+1),hsn1 = parseInt(hn+11),hsn2 = parseInt(hn+21),hsn3 = parseInt(hn+31),hsn4 = parseInt(hn+41);
-let hvm1 = parseInt(hm+9),hvm2 = parseInt(hm+18),hvm3 = parseInt(hm+27),hvm4 = parseInt(hm+36);
-let hvt1 = parseInt(ht+9),hvt2 = parseInt(ht+18),hvt3 = parseInt(ht+27),hvt4 = parseInt(ht+36);
-let hvn1 = parseInt(hn+9),hvn2 = parseInt(hn+18),hvn3 = parseInt(hn+27),hvn4 = parseInt(hn+36);
 
-switch (turno) {
-  case "mañana":
-    window.addEventListener("load", mostrarhorasm, false);
-    var timer = setInterval(sumahorasm, 500);
-    break;
-  case "tarde":
-    window.addEventListener("load", mostrarhorast, false);
-    var timer2 = setInterval(sumahorast, 500);
-  break;
-  case "tarde:":
-    window.addEventListener("load", mostrarhorast, false);
-    var timer2 = setInterval(sumahorast, 500);
-  break;
-  case "noche":
-    window.addEventListener("load", mostrarhorasn, false);
-    var timer3 = setInterval(sumahorasn, 500);
-  break;
-
-  default:
-    break;
+var ht = 0;
+if (turno == "mañana") {
+  ht = parseInt(horariom[h]);
+}else if (turno == "tarde") {
+  ht = parseInt(horariot[h]);
+}else if (turno == "noche"){
+  ht = parseInt(horarion[h]);
 }
 
-function mostrarhorasm() {
-  let mostar = document.getElementsByClassName("col-md-5");
-  for (i = hm; i < mostar.length; i += 10) {
-    mostar[i].style.display = "block";
+let hs = parseInt(ht+1),hs1 = parseInt(ht+11),hs2 = parseInt(ht+21),hs3 = parseInt(ht+31),hs4 = parseInt(ht+41);
+
+let hv1 = parseInt(ht+9),hv2 = parseInt(ht+18),hv3 = parseInt(ht+27),hv4 = parseInt(ht+36);
+
+window.addEventListener("load", mostrarhoras, false);
+var timer = setInterval(sumahoras, 500);
+
+function mostrarhoras() {
+  let mostarbloque = document.getElementsByClassName("col-md-5");
+  for (i = ht; i < mostarbloque.length; i += 10) {
+    mostarbloque[i].style.display = "block";
   }
-  let mostrarhora2 = document.getElementsByClassName("hora-mañana");
+  let mostrarhora2 = document.getElementsByClassName("hora-"+turno);
   for (let i = 0; i < mostrarhora2.length; i++) {
     mostrarhora2[i].style.display = "block";
   }
 }
 
-function mostrarhorast() {
-  let mostar = document.getElementsByClassName("col-md-5");
-  for (i = ht; i < mostar.length; i += 10) {
-    mostar[i].style.display = "block";
-  }
-  let mostrarhora2 = document.getElementsByClassName("hora-tarde");
-  for (let i = 0; i < mostrarhora2.length; i++) {
-    mostrarhora2[i].style.display = "block";
-  }
-}
-
-function mostrarhorasn() {
-  let mostar = document.getElementsByClassName("col-md-5");
-  for (i = hn; i < mostar.length; i += 10) {
-    mostar[i].style.display = "block";
-  }
-  let mostrarhora2 = document.getElementsByClassName("hora-noche");
-  for (let i = 0; i < mostrarhora2.length; i++) {
-    mostrarhora2[i].style.display = "block";
-  }
-}
-
-function sumahorasm() {
-  let sh = 0,
-    sh1 = 0,
-    sh2 = 0,
-    sh3 = 0,
-    sh4 = 0;
-  for (let i = 0; i < hsm; i++) {
+function sumahoras() {
+  let sh = 0,sh1 = 0,sh2 = 0,sh3 = 0,sh4 = 0;
+  for (let i = 0; i < hs; i++) {
     let hora = parseInt(
       document.getElementsByClassName("form-control 1")[i].value
     );
     sh += hora;
   }
-  for (let i = 10; i < hsm1; i++) {
+  for (let i = 10; i < hs1; i++) {
     let hora = parseInt(
       document.getElementsByClassName("form-control 1")[i].value
     );
     sh1 += hora;
   }
-  for (let i = 20; i < hsm2; i++) {
+  for (let i = 20; i < hs2; i++) {
     let hora = parseInt(
       document.getElementsByClassName("form-control 1")[i].value
     );
     sh2 += hora;
   }
-  for (let i = 30; i < hsm3; i++) {
+  for (let i = 30; i < hs3; i++) {
     let hora = parseInt(
       document.getElementsByClassName("form-control 1")[i].value
     );
     sh3 += hora;
   }
-  for (let i = 40; i < hsm4; i++) {
-    let hora = parseInt(
-      document.getElementsByClassName("form-control 1")[i].value
-    );
-    sh4 += hora;
-  }
-  document.getElementsByClassName("form-control 2")[hm].value = sh;
-  document.getElementsByClassName("form-control 2")[hvm1].value = sh1;
-  document.getElementsByClassName("form-control 2")[hvm2].value = sh2;
-  document.getElementsByClassName("form-control 2")[hvm3].value = sh3;
-  document.getElementsByClassName("form-control 2")[hvm4].value = sh4;
-}
-
-function sumahorast() {
-  let sh = 0,
-    sh1 = 0,
-    sh2 = 0,
-    sh3 = 0,
-    sh4 = 0;
-  for (let i = 0; i < hst; i++) {
-    let hora = parseInt(
-      document.getElementsByClassName("form-control 1")[i].value
-    );
-    sh += hora;
-  }
-  for (let i = 10; i < hst1; i++) {
-    let hora = parseInt(
-      document.getElementsByClassName("form-control 1")[i].value
-    );
-    sh1 += hora;
-  }
-  for (let i = 20; i < hst2; i++) {
-    let hora = parseInt(
-      document.getElementsByClassName("form-control 1")[i].value
-    );
-    sh2 += hora;
-  }
-  for (let i = 30; i < hst3; i++) {
-    let hora = parseInt(
-      document.getElementsByClassName("form-control 1")[i].value
-    );
-    sh3 += hora;
-  }
-  for (let i = 40; i < hst4; i++) {
+  for (let i = 40; i < hs4; i++) {
     let hora = parseInt(
       document.getElementsByClassName("form-control 1")[i].value
     );
     sh4 += hora;
   }
   document.getElementsByClassName("form-control 2")[ht].value = sh;
-  document.getElementsByClassName("form-control 2")[hvt1].value = sh1;
-  document.getElementsByClassName("form-control 2")[hvt2].value = sh2;
-  document.getElementsByClassName("form-control 2")[hvt3].value = sh3;
-  document.getElementsByClassName("form-control 2")[hvt4].value = sh4;
-}
-
-function sumahorasn() {
-  let sh = 0,
-    sh1 = 0,
-    sh2 = 0,
-    sh3 = 0,
-    sh4 = 0;
-  for (let i = 0; i < hsn; i++) {
-    let hora = parseInt(
-      document.getElementsByClassName("form-control 1")[i].value
-    );
-    sh += hora;
-  }
-  for (let i = 10; i < hsn1; i++) {
-    let hora = parseInt(
-      document.getElementsByClassName("form-control 1")[i].value
-    );
-    sh1 += hora;
-  }
-  for (let i = 20; i < hsn2; i++) {
-    let hora = parseInt(
-      document.getElementsByClassName("form-control 1")[i].value
-    );
-    sh2 += hora;
-  }
-  for (let i = 30; i < hsn3; i++) {
-    let hora = parseInt(
-      document.getElementsByClassName("form-control 1")[i].value
-    );
-    sh3 += hora;
-  }
-  for (let i = 40; i < hsn4; i++) {
-    let hora = parseInt(
-      document.getElementsByClassName("form-control 1")[i].value
-    );
-    sh4 += hora;
-  }
-  document.getElementsByClassName("form-control 2")[hn].value = sh;
-  document.getElementsByClassName("form-control 2")[hvn1].value = sh1;
-  document.getElementsByClassName("form-control 2")[hvn2].value = sh2;
-  document.getElementsByClassName("form-control 2")[hvn3].value = sh3;
-  document.getElementsByClassName("form-control 2")[hvn4].value = sh4;
+  document.getElementsByClassName("form-control 2")[hv1].value = sh1;
+  document.getElementsByClassName("form-control 2")[hv2].value = sh2;
+  document.getElementsByClassName("form-control 2")[hv3].value = sh3;
+  document.getElementsByClassName("form-control 2")[hv4].value = sh4;
 }
